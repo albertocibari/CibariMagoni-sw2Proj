@@ -39,50 +39,98 @@
 	\section{Introduction}
 	
 	\subsection{Purpose}
-	This document represents the Requirements Analysis and Specification Document (RASD).
-	Its aim is to capture all the functional and non-functional requirements that the system-to-be has to respect, in order to satisfy the stakeholders goals, under certain domain properties. This document is also a valid basis for system testing, verification and validation.
+    	This document represents the Requirements Analysis and Specification Document (RASD).
+    	Its aim is to capture all the functional and non-functional requirements that the system-to-be has to respect, in order to satisfy the stakeholders goals, under certain domain properties. This document is also a valid basis for system testing, verification and validation.
 	
 	\subsection{Scope}
-	The aim of our project is to optimize the taxi service of a large city. 
-	Passengers, once registered to the application, will have the possibility to request a taxi through either the web application or the mobile application. When a request from a passenger arrives, the system-to-be will be able to look for an available taxi (through a fair management of the taxi queue) and send the code of the incoming taxi and the waiting time to the passenger. Taxi drivers will inform the system of their position and confirm a certain call thanks to a mobile application.\\
-	If the first taxi of the queue is not available, the system will forward the request to the second taxi of the queue and put the first taxi in the last position of the queue. This process will continue until it finds an available taxi, in order to satisfy the passenger's request.\\\\
-	The peculiar feature of our system is that it will also offer an additional service: it will allow passengers to reserve a taxi in advance, by specifying the origin and the destination of their journey. The reservation must occur at least two hours before the ride and the system will inform the taxi driver ten minutes before the scheduled time.
+    	The aim of our project is to optimize the taxi service of a large city. 
+    	Passengers, once registered to the application, will have the possibility to request a taxi through either the web application or the mobile application. When a request from a passenger arrives, the system-to-be will be able to look for an available taxi (through a fair management of the taxi queue) and send the code of the incoming taxi and the waiting time to the passenger. Taxi drivers will inform the system of their position and confirm a certain call thanks to a mobile application.\\
+    	If the first taxi of the queue is not available, the system will forward the request to the second taxi of the queue and put the first taxi in the last position of the queue. This process will continue until it finds an available taxi, in order to satisfy the passenger's request.\\\\
+    	The peculiar feature of our system is that it will also offer an additional service: it will allow passengers to reserve a taxi in advance, by specifying the origin and the destination of their journey. The reservation must occur at least two hours before the ride and the system will inform the taxi driver ten minutes before the scheduled time.
+	
+	\subsection{Goals}
+	    For users who want to use the taxi services
+	    \begin{itemize}
+    	    \item User registration
+    	    \item User log in
+    	    \item User request creation
+    	    \item User reservation creation
+    	    \item User request/reservation deletion
+    	    \item View request/reservation info
+    	    \item View history
+	    \end{itemize}
+	    
+	    For taxi drivers
+	    \begin{itemize}
+    	    \item Receive information of the city zones to cover
+    	    \item Receive requests/reservations from system
+    	    \item Accept and decline request/reservations
+	    \end{itemize}
+	   
+	    For system
+	    \begin{itemize}
+    	    \item Schedule taxi
+    	    \item Send notifications to taxi drivers and users
+    	    \item Queue management
+	    \end{itemize}
+	    
+	\subsection{Actors}
+    	The actors of our informative system are:
+    	\begin{itemize}
+    	    \item \textbf{Guest}: a person who is not registered in the system. He can not use the features of the system until he registers. 
+    		\item \textbf{User}: a person who is already registered in the system that uses the application to request or reserve a taxi.
+    		\item \textbf{Taxi Driver}: a person registered in the system that uses the application to inform the system of the call they take care of and to notify their availability.
+    		\item \textbf{Administrators}: managers of the web and mobile applications. They manage internally the system and try to fix errors in case of system fault.
+    	\end{itemize}
 	
 	\subsection{Definitions, acronyms, abbreviations}
-	In order to avoid confusion, we want to specify the definition of some words that will be often used in our documentation of the project. 
-	\begin{itemize}
-		\item PASSENGER: for passenger we mean a person, already registered in the system, who has requested or reserved a taxi either through the web or the mobile applications.
-		\item USER: a person who is already registered in the system that can use the application to request or reserve a taxi.
-		\item GUEST:  a person who is not registered in the system.
-		\item REQUEST: message sent by the user's application to the system in order to require a taxi or make a reservation.
-		\item CALL: a task received by the taxi drivers after a user made a request.
-		\item TAXI ZONE: for taxi zone we mean a zone that is approximately 2km^2. Each taxi zone has a queue of taxi associated. 
-	    \item QUEUE: for queue we mean the list of taxi available at a specific moment in a certain zone.
-		\item NOTIFICATION: 
-		\item RESERVATION: the action of the user to book a taxi followed by a request to the system.
-	
-	\end{itemize}
+    	In order to avoid confusion, we want to specify the definition of some words that will be often used in our documentation of the project. 
+    	\begin{itemize}
+    		\item PASSENGER: for passenger we mean a person, already registered in the system, who has requested or reserved a taxi either through the web or the mobile applications.
+    		\item USER: a person who is already registered in the system that can use the application to request or reserve a taxi.
+    		\item GUEST:  a person who is not registered in the system.
+    		\item REQUEST: message sent by the user's application to the system in order to require a taxi or make a reservation.
+    		\item CALL: a task received by the taxi drivers after a user made a request.
+    		\item TAXI ZONE: for taxi zone we mean a zone that is approximately 2km2. Each taxi zone has a queue of taxi associated. 
+    	    \item QUEUE: for queue we mean the list of taxi available at a specific moment in a certain zone.
+    		\item NOTIFICATION: 
+    		\item RESERVATION: the action of the user to book a taxi followed by a request to the system.
+    	\end{itemize}
+    
+    \subsection{Stakeholders}
+        Compagnie di taxi che lavorano per il comune, il comune stesso.
+    
+	\subsection{Reference documents}
+	    \begin{itemize}
+	        \item Specification Document: Software Engineering 2 Project, AA 2015-2016 Assignments 1 and 2.
+	        \item IEEE Std 830-1998: IEEE Recommended Practice for Software Requirements Specifcations.
+	    \end{itemize}
 
 	
-	\subsection{Reference documents}
 	\subsection{Overview}
+	    Come è organizzato il documento
 	
 	
-	\section{Actors Identifying}
-	The actors of our informative system are:
-	\begin{itemize}
-	    \item \textbf{Guest}: a person who is not registered in the system. He can not use the features of the system until he registers. 
-		\item \textbf{User}: a person who is already registered in the system that uses the application to request or reserve a taxi.
-		\item \textbf{Taxi Driver}: a person registered in the system that uses the application to inform the system of the call they take care of and to notify their availability.
-		\item \textbf{Administrators}: managers of the web and mobile applications. They manage internally the system and try to fix errors in case of system fault.
-	\end{itemize}
-	
-	\section{Overall Description}
+\section{Overall Description}
 	\subsection{Product perspective}
+	
 	\subsection{Product functions}
+	
 	\subsection{User characteristics}
+	
 	\subsection{Constraints}
+	
 	\subsection{Assumptions and Dependencies}
-	\section{Specific Requirements}
+	   \begin{itemize}
+	        \item Max quque length per zone
+	        \item Too many taxi reschedule positions
+	        \item Too few taxi reschedule positions
+	        \item Priority to reservations
+	        \item Users can delete request before a certain time
+	        \item Users can delete reservations within 10 minutes from the appointment
+	        \item GPS are installed in taxi and contain taxi ID
+	        \item Taxi drivers can delete accepted request by contacting admins and only if there is a problem to car 
+	        \item Reservation origin must be in city border
+	    \end{itemize}
 	
 \end{document}
