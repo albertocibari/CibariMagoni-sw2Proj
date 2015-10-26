@@ -1,0 +1,45 @@
+\subsubsection{Regulatory policies}
+	\begin{itemize}
+		\item The system must work under the local laws and policies.
+		\item The system must ask the user to acquire, store and process personal data. 
+	\end{itemize}
+	
+\subsubsection{Hardware limitations}
+	\begin{itemize}
+		\item Taxi must have implemented a GPS device in order to track their car's location.
+		\item Taxi driver and users must have a mobile device with the mobile application 'myTaxiService' installed. The minimum requirements for the application to be used are: 
+		\begin{itemize}
+			\item 3G connection
+			\item 512MB of RAM
+			\item 50MB of free disk space
+		\end{itemize}
+		\item The web version of the application must work with the versions of IE, Chrome, Opera and Firefox released after 2010.
+	\end{itemize}
+
+\subsubsection{Performance requirements}
+	\begin{itemize}
+		\item The system must reschedule the taxi positions within 5 minutes.
+		\item The system must send the user's requests to the taxi drivers as soon as they are received.
+		\item If a request arrives during the rescheduling process, the system must use the taxi configuration as it was before the reschedule.
+	\end{itemize}
+
+\subsection{Reliability requirements}
+	\begin{itemize}
+		\item The system must have a minimum availability of 97\%.
+		\item The system can be shut down for maintenance only during night time for at least 5 hours a month.
+	\end{itemize}
+
+\subsubsection{Security considerations}
+	\begin{itemize}
+		\item The origin and destination of a user request must be kept secret.
+	\end{itemize}
+
+\subsubsection{Interfaces to other applications}
+	\begin{itemize}
+		\item At the moment 'myTaxiService' has no interfaces with other applications. Possible implementations in the future.
+	\end{itemize}
+
+\subsubsection{Parallel operations}
+	\begin{itemize}
+		\item 'myTaxiService' must support parallel operations from different users when working with database and with all operations done by the user after connection.
+	\end{itemize}
