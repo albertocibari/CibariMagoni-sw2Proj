@@ -8,12 +8,13 @@
 \renewcommand{\baselinestretch}{1.3} 
 
 \title{
-	\textbf{\Huge{myTaxiService}}
-	\\
+	\Huge{\textbf{myTaxiService}}
+	\newline
 	\huge{\textbf{R}equirement \textbf{A}nalysis and \textbf{S}pecification \textbf{D}ocument}
 }
 \author{
-	Monica Magoni 854091\\
+	Monica Magoni 854091
+	\\
 	Alberto Cibari 852689
 }
 \date{October 2015}
@@ -44,13 +45,16 @@
 	
 	\subsection{Scope}
     	The aim of our project is to optimize the taxi service of a large city. 
-    	Passengers, once registered to the application, will have the possibility to request a taxi through either the web application or the mobile application. When a request from a passenger arrives, the system-to-be will be able to look for an available taxi (through a fair management of the taxi queue) and send to the passenger the code of the incoming taxi and the waiting time. Taxi drivers will inform the system of their availability and confirm a certain call thanks to a mobile application.\\
-    	If the first taxi of the queue is not available, the system will forward the request to the second taxi of the queue and put the first taxi in the last position of the queue. This process will continue until the system finds an available taxi, in order to satisfy the passenger's request.\\\\
-    	Our system will also offer some programmatic interfaces for the development of additional functions, such as taxi sharing.\\
+    	Passengers, once registered to the application, will have the possibility to request a taxi through either the web application or the mobile application. When a request from a passenger arrives, the system-to-be will be able to look for an available taxi (through a fair management of the taxi queue) and send to the passenger the code of the incoming taxi and the waiting time. Taxi drivers will inform the system of their availability and confirm a certain call thanks to a mobile application.
+    	\newline
+    	If the first taxi of the queue is not available, the system will forward the request to the second taxi of the queue and put the first taxi in the last position of the queue. This process will continue until the system finds an available taxi, in order to satisfy the passenger's request.
+    	\newline
+    	Our system will also offer some programmatic interfaces for the development of additional functions, such as taxi sharing.
+    	\newline
     	The peculiar feature of our system is that it will also offer an additional service: it will allow passengers to reserve a taxi in advance, by specifying the origin and the destination of their journey. The reservation must occur at least two hours before the ride and the system will inform the taxi driver ten minutes before the scheduled time.
 	
 	\subsection{Goals}
-	For users:
+    	For users:
 	    \begin{itemize}
     	    \item Sign up into the system.
     	    \item Log into the system.
@@ -61,7 +65,7 @@
     	    \item Visualize all the details of requests or reservations.
 	    \end{itemize}
 	    
-	For taxi drivers:
+	    For taxi drivers:
 	    \begin{itemize}
     	    \item Receive information from the system of the city's area they have to cover.
 	        \item Notify the system of their availability.
@@ -69,13 +73,13 @@
     	    \item Accept or decline requests.
 	    \end{itemize}
 	   
-	 For the system:
+	    For the system:
 	    \begin{itemize}
     	    \item Schedule taxi in every area of the city.
     	    \item Send notifications to taxi drivers and users.
     	    \item Receive from the user's application a request or a reservation.
     	    \item Be notified by the taxi drivers of their availability.
-    	    \item Be notified by the taxi drivers of their refusal or to a specific request.
+    	    \item Be notified by the taxi drivers of their refusal or acceptance of a specific request.
     	    \item Management of taxi queues.
 	    \end{itemize}
 	    
@@ -90,18 +94,18 @@
 	
 	\subsection{Definitions, acronyms, abbreviations}
 	    \subsubsection{Definitions}
-    	In order to avoid confusion, we want to specify the definition of some words that will be often used in our documentation of the project. 
-    	\begin{itemize}
-    		\item PASSENGER: for passenger we mean a person, already registered in the system, who has requested or reserved a taxi either through the web or the mobile applications.
-    		\item USER: a person who is already registered in the system that can use the application to request or reserve a taxi.
-    		\item GUEST:  a person who is not registered in the system.
-    		\item REQUEST: message sent by the user's application to the system in order to require a taxi or make a reservation.
-    		\item CALL: a task received by the taxi drivers after a user made a request.
-    		\item TAXI ZONE: for taxi zone we mean a zone that is approximately 2km2. Each taxi zone has a queue of taxi associated. 
-    	    \item QUEUE: for queue we mean the list of taxi available at a specific moment in a certain zone.
-    		\item NOTIFICATION: 
-    		\item RESERVATION: the action of the user to book a taxi followed by a request to the system.
-    	\end{itemize}
+        	In order to avoid confusion, we want to specify the definition of some words that will be often used in our documentation of the project. 
+        	\begin{itemize}
+        		\item PASSENGER: for passenger we mean a person, already registered in the system, who has requested or reserved a taxi either through the web or the mobile applications.
+        		\item USER: a person who is already registered in the system that can use the application to request or reserve a taxi.
+        		\item GUEST:  a person who is not registered in the system.
+        		\item REQUEST: message sent by the user's application to the system in order to require a taxi or make a reservation.
+        		\item CALL: a task received by the taxi drivers after a user made a request.
+        		\item TAXI ZONE: for taxi zone we mean a zone that is approximately 2km2. Each taxi zone has a queue of taxi associated. 
+        	    \item QUEUE: for queue we mean the list of taxi available at a specific moment in a certain zone.
+        		\item NOTIFICATION: 
+        		\item RESERVATION: the action of the user to book a taxi followed by a request to the system.
+        	\end{itemize}
     	
     \subsubsection{Acronyms}
         \begin{itemize}
@@ -115,20 +119,20 @@
 	\subsection{Reference documents}
 	    \begin{itemize}
 	        \item Specification Document: Software Engineering 2 Project, AA 2015-2016 Assignments 1 and 2.
-	        \item IEEE Std 830-1998: IEEE Recommended Practice for Software Requirements Specifcations.
+	        \item IEEE Std 830-1998: IEEE Recommended Practice for Software Requirements Specifications.
 	    \end{itemize}
 
 	
 	\subsection{Overview}
 	    Our document is organized in four parts:
 	    \begin{itemize}
-	    \item Introduction: in this section, we give an overview of the scope and goals of our system-to-be. We also identify the main actors that will be involved in our system and give the basic definitions of some words we will use in this document.
-	    \item Overall description: in this part, we try to focus our attention on constraints and assumptions, concerning our system-to-be and the world around it. 
-	    \item Specific requirements: this section is the body of our document. All the specific requirements that our system need to have are described here and they are associated with different kind of diagrams, in order to create a model of the real system.
-	    \item Appendix: .....
-	    
-	    MANCA APPENDIX
-	    
+    	    \item Introduction: in this section, we give an overview of the scope and goals of our system-to-be. We also identify the main actors that will be involved in our system and give the basic definitions of some words we will use in this document.
+    	    \item Overall description: in this part, we try to focus our attention on constraints and assumptions, concerning our system-to-be and the world around it. 
+    	    \item Specific requirements: this section is the body of our document. All the specific requirements that our system need to have are described here and they are associated with different kind of diagrams, in order to create a model of the real system.
+    	    \item Appendix: .....
+    	    
+    	    MANCA APPENDIX
+    	    
 	    \end{itemize}
 	
 \newpage
@@ -138,12 +142,11 @@
 	\subsection{Product functions}
 	
 	\subsection{User characteristics}
-	
-	We expect that our user's application will be installed by users who are looking for an easy way to request or reserve a taxi and have the possibility to check their reservations whenever they want.
-	We expect that our taxi drivers' application will be used by taxi drivers in order to simplify their work: our system will offer a simple way to accept or deny a request and to share taxi drivers' locations.
+    	We expect that our user's application will be installed by users who are looking for an easy way to request or reserve a taxi and have the possibility to check their reservations whenever they want. \newline
+    	We expect that our taxi drivers' application will be used by taxi drivers in order to simplify their job: our system will offer a simple way to accept or deny a request and to share taxi drivers' locations.
 	
 	\subsection{Assumptions and Dependencies}
-	   \begin{itemize}
+	    \begin{itemize}
 	        \item The taxi queue of each area has a maximum length.
 	        \item Too many taxi reschedule positions
 	        \item Too few taxi reschedule positions
@@ -158,7 +161,7 @@
 	        \item When a user makes a request with the relative web form, he must specify the origin  of the ride.
 	        \item If a taxi driver doesn't accept/deny a request received by the system within 1 minute, the system forwards the request to the next taxi driver in the queue.
 	        \item Once a taxi driver accepts a request, the system will delete its identifier from the queue.
-	    \end{itemize}
+        \end{itemize}
 	
 	\subsection{Constraints}
 	    \subsubsection{Regulatory policies}
@@ -174,8 +177,8 @@
     	    \end{itemize}
     	\subsubsection{Performance requirements}
     	    \begin{itemize}
-    	        \item The system must reschedule the taxi positions within 5 minutes;
-    	        \item The system must send the user's requests to the taxi drivers as soon as they are received;
+    	        \item The system must reschedule the taxi positions within 5 minutes.
+    	        \item The system must send the user's requests to the taxi drivers as soon as they are received.
     	        \item If a request arrives during the rescheduling process, the system must use the taxi configuration as it was before the reschedule.
     	    \end{itemize}
     	\subsubsection{Interfaces to other applications}
@@ -184,21 +187,21 @@
     	    \end{itemize}
         \subsubsection{Parallel operations}
             \begin{itemize}
-                \item  'myTaxiService' must support parallel operations from different users when working with database and with all operations done by the user after connection.
+                \item 'myTaxiService' must support parallel operations from different users when working with database and with all operations done by the user after connection.
             \end{itemize}
        
    
 	\subsection{Future possible implementation}
 	    \begin{itemize}
-	    \item An additional service that could be integrated to our mobile application or web application is taxi sharing.
-	    \item Another useful function that could be added to our user's application is the possibility to pay in advance (via mobile or web) for a confirmed request or reservation.
-	    In this way, the system will need to be interconnected to a bank's application.
+    	    \item An additional service that could be integrated to our mobile application or web application is taxi sharing. This feature allows the passengers who wants to go to the same city area to share the taxi.
+    	    \item Another useful function that could be added to our user's application is the possibility to pay via mobile after the taxi reaches his destination.
+    	    In this way, the system will need to be interconnected to a bank's application.
 	    \end{itemize}
 \newpage	    
 \section{Specific Requirements}
     \subsection{External Interface Requirements}
 	    \subsubsection{User Interfaces}
-            Here there are some UI sketches that show how the pages of our applications will be organised.
+            Here are presented some mockups that show how the pages of our applications will be organised, for both mobile and web applications.
             \paragraph{Login}
             \paragraph{Registration form}
             \paragraph{Home page utente}
@@ -206,22 +209,25 @@
             \paragraph{Request/Reservation page}
             \paragraph{Request details} Sia per taxi che per utente
             \paragraph{Administrators taxi map}
+            
         \subsubsection{Hardware Interfaces}
             GPS
+            
         \subsubsection{Software Interfaces}
             servizi condivisi da web application e mobile applications
             \begin{itemize}
-                \item DBMS: \\
+                \item DBMS: \newline
                 - SQL Server 2014.
-                \item Application server: \\
+                \item Application server: \newline
                 - Windows Server 2012 R2 based on technology .NET.
-                \item Operating System (OS): \\
-                - The web application must be able to run on any SO using any browser. \\
+                \item Operating System (OS): \newline
+                - The web application must be able to run on any SO using any browser. \newline
                 - The mobile applications must be available for devices running Android and iOS.
             \end{itemize}
+            
         \subsubsection{Communication Interfaces}
-            The web applications works over TCP using HTTPS on the port 443.\\
-            The web sevices run on the server on the port XXXXX.\\
+            The web applications works over TCP using HTTPS on the port 443.\newline
+            The web sevices run on the server on the port XXXXX.\newline
             The DBMS runs on port 8888.
             Da fare descrittivo.
             
