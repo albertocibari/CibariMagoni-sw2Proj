@@ -1,0 +1,5 @@
+myTaxiService.aux
+*.log
+myTaxiService.pdf
+myTaxiService.toc
+*.gz

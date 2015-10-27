@@ -1,0 +1,103 @@
+\subsubsection{User Registration}
+    Users can subscribe to the system via mobile or web application. In both cases they have to fill a form with their personal data and authorize the recipient to use and process their personal details.
+    If the user accepts the conditions then he can complete the registration, otherwise it is canceled.
+    One registered a confirmation the system checks the consistency of the data inserted my the users and if everything is fine a mail is sent to the new registered user.
+    The registration can be done by the taxi driver and a generic user of the service. Taxi drivers must complete the form with more specific data.
+    
+    \subparagraph{Functional requirements}
+    \begin{itemize}
+        \item  During the registration phase users must chose which kind of account create: user or taxi driver.
+            If the account is a user account than users must provide:
+            \begin{itemize}
+                \item Complete name
+                \item Email address
+                \item Username
+                \item Password
+                \item Address
+                \item Phone number
+            \end{itemize}
+            If the account is a taxi driver account, the user must provide the same information of a user account, with in addiction:
+            \begin{itemize}
+                \item Taxi Licence ID
+            \end{itemize}
+        \item The username must be an alphabetic string.
+        \item The password must be an alphanumeric string with at least a number and a uppercase character.
+        \item The password length must be between 8 and 16 characters.
+        \item There can not be two accounts with the same e-mail and of the same type (user, taxi).
+        \item The username is case-insensitive
+    \end{itemize}
+    
+    
+\subsubsection{User Login}
+    Users must be logged in the system to use its services.
+    On the login process users must chose the type of account (user or taxi), insert the username and the password. If everything is ok then the users are redirected to their homepage.
+    In the user Login page not registered users can be redirected to the Registration page.
+    
+    \subparagraph{Functional requirements}
+        \begin{itemize}
+            \item In the user field users can insert the email or the username chosen during the registration phase.
+            \item If a user makes a mistake inserting the credentials a suggestion field in the page pops up, and can be used to recover the credentials.
+            \item After inserting only the password for 3 times, the account freezes and the user receive an email with the instructions to unfreeze the account.
+            \item The username fiels is case insensitive
+    
+        \end{itemize}
+        
+\subsubsection{User home page}  
+    After the login users are redirected to their main page. Here they have the possibility to choose different action to do.
+    They can reset their password, change personal information or delete their account.
+    If the user in the page is a generic user, he can choose the option of creating a request or a reservation.
+    If the user is a taxi driver, he can view the pending request sent by the system and accept or decline it.
+    
+    \subparagraph{Functional requirements}
+    \begin{itemize}
+        \item A generic user can:
+            \begin{itemize}
+                \item Change password.
+                \item Change account information.
+                \item Delete account.
+                \item Make a taxi request.
+                \item Make a Reservation.
+                \item View the history of all the rides done.
+            \end{itemize}
+        \item A taxi driver user can:
+            \begin{itemize}
+                \item Change password.
+                \item Change account information.
+                \item Delete account.
+                \item View the history of all the rides done.
+                \item Activate/Deactivate taxi service.
+                \item View the pending request.
+                \item Track the taxi via GPS.
+            \end{itemize}
+        
+        \item During the password changing phase the old password should provided with the new one.
+            \begin{itemize}
+                \item The new password must be an alphanumeric string with at least a number and a uppercase character.
+                \item The new password length must be between 8 and 16 characters. 
+                \item The new password must be different from the old one.
+            \end{itemize}
+        \item During the account deletion phase, after the confirmation by the user, a mail is sent to him with a link to deactivate the account.
+        \item The deletion account function delete the account but keeps the relative user information. The information are kept as history in the DB.
+        \item Activate/Deactivate taxi service: the taxi driver use this function to tell the system to activate/deactivate the taxi service adding/removing him from the taxi queues in the city zones.
+        \item When the taxi driver receives a request it is displayed in the main page for 1 minute, then it is passed to the next user in the city zone queue.
+    \end{itemize}
+        
+
+\subsubsection{Activation/Deactivation/handling of the taxi service}
+	When a taxi driver is in his home page in the application he shall be able to activate or deactivate his taxi service sending a notification to the system.
+	When the system receives the notification from the user application about activating/deactivating the taxi system, it checks if the GPS installed in the car connected to the account is on. If there are no errors the taxi is put into a taxi zone queue or removed from the queue.
+	When a taxi driver completes a request, he has to notify the system. The system then insert him at the end of the taxi zone queue where the taxi is in.
+	
+	\subparagraph{Functional requirements}
+	\begin{itemize}
+	    \item When a request is incoming, the system must notify the user.
+	    \item The taxi driver should replay to the request within one minute, otherwise the request is passed to the next taxi in the queue, and the driver is put at the end of the current queue.
+	\end{itemize} 
+	
+	
+	
+	%\paragraph{Request details}\mbox{} \\
+	%	In this sections both users and taxi drivers can view the details of requests or reservations
+		
+	%\paragraph{Administrators taxi map}\mbox{} \\
+	%    In this section the administrators of the system can view the location of every taxi and view its information about the current task.

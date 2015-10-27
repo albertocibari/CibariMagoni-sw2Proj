@@ -23,7 +23,7 @@
 		\item If a request arrives during the rescheduling process, the system must use the taxi configuration as it was before the reschedule.
 	\end{itemize}
 
-\subsection{Reliability requirements}
+\subsubsection{Reliability requirements}
 	\begin{itemize}
 		\item The system must have a minimum availability of 97\%.
 		\item The system can be shut down for maintenance only during night time for at least 5 hours a month.
@@ -37,9 +37,4 @@
 \subsubsection{Interfaces to other applications}
 	\begin{itemize}
 		\item At the moment 'myTaxiService' has no interfaces with other applications. Possible implementations in the future.
-	\end{itemize}
-
-\subsubsection{Parallel operations}
-	\begin{itemize}
-		\item 'myTaxiService' must support parallel operations from different users when working with database and with all operations done by the user after connection.
 	\end{itemize}
