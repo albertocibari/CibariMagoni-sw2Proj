@@ -131,13 +131,29 @@ The user shall be able to make a taxi request from the web application and the m
 
 
 \subsubsection{Taxi driver notification handling}
-After a taxi driver activate the taxi service, he can receive a notification request for a taxi ride. He can accept or refuse the request
+After a taxi driver activate the taxi service, he can receive a notification request for a taxi ride. He can accept or refuse the request. If the request is accepted he has to go to the origin location indicated in the notification.
 
 	\subparagraph{Functional requirements}
 	\noindent
+		\begin{itemize}
+			\item After the taxi driver receives a notification, if the system doesn't receive an answer within 1 minute, the notification is passed to the following driver in the taxi queue.
+			\item If there are no available taxi drivers in a city zone, the system send the notification to the nearest free taxi driver
+			\item When the taxi reaches the origin zone, the system asks him to confirm the begin of the ride.
+			\item When the taxi reaches the destination zone, the system asks him to confirm the end of the ride.
+			\item After the taxi driver confirms the begin of a ride, the system sets his status to 'busy'.
+			\item After the taxi driver confirms the end of a ride, the system sets his status to 'available'.
+			\item After the ending of a ride, the system stores the data of the ride into the DB.
+		\end{itemize}
+
 
 \subsubsection{Zone queue handling}
+The system has to handle the queue of the taxis in the various city zoned. It has to schedule the the request and send them to the right taxi.
+
 	\subparagraph{Functional requirements}
 	\noindent
-
+		\begin{itemize}
+			\item The queues use the FIFO policy.
+			\item When a taxi connects to the system and sets its status to available, the system insert it into a queue.
+			\item The queue is identified by the GPS positions of the city zones. So taxi are put in the queues according to their GPS location.
+		\end{itemize}
 
