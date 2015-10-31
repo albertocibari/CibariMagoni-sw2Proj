@@ -1,1 +1,0 @@
-{"mockup":{"controls":{"control":[{"ID":"1","h":"480","measuredH":"70","measuredW":"100","typeID":"Canvas","w":"280","x":"0","y":"0","zOrder":"0"}]},"measuredH":"480","measuredW":"280","mockupH":"480","mockupW":"280","version":"1.0"}}

@@ -1,23 +1,22 @@
-\subsubsection{User Registration}
-Users can subscribe to the system via mobile or web application. In both cases they have to fill a form with their personal data and authorize the recipient to use and process their personal details.
-If the user accepts the conditions then he can complete the registration, otherwise it is canceled.
-One registered a confirmation the system checks the consistency of the data inserted my the users and if everything is fine a mail is sent to the new registered user.
-The registration can be done by the taxi driver and a generic user of the service. Taxi drivers must complete the form with more specific data.
+\subsubsection{Guest Registration}
+Guests can subscribe to the system via mobile or web application. In both cases they have to fill a form with their personal data and authorize the recipient to use and process their personal details.
+If the guest accepts the conditions then he can complete the registration, otherwise it is canceled.
+Once a guest is registered, the system checks the consistency of the data inserted by the guest and if everything is correct a mail is sent to the new user. \newline
+The registration can also be done by taxi drivers and by a generic user of the service. Taxi drivers must complete the form with more specific data.
 
 	\subparagraph{Functional requirements}
 	\noindent
 		\begin{itemize}
-			\item  During the registration phase users must choose which kind of account create: user or taxi driver.
-			If the account is a user account then users must provide:
+			\item  During the registration phase guests must choose which kind of account to create: user or taxi driver.
+			If the account is a user account then guests must provide:
 			\begin{itemize}
 				\item Name and surname
 				\item Email address
 				\item Username
 				\item Password
-				\item Address
 				\item Phone number
 			\end{itemize}
-			If the account is a taxi driver account, the user must provide the same information of a user account, with in addiction:
+			If the account is a taxi driver account, the guest must provide the same information of a user account, with in addiction:
 			\begin{itemize}
 				\item Taxi Licence ID
 			\end{itemize}
@@ -26,25 +25,26 @@ The registration can be done by the taxi driver and a generic user of the servic
 			\item The password's length must be between 8 and 16 characters.
 			\item There can not be two accounts with the same e-mail and of the same type (user, taxi).
 			\item The username is case-insensitive.
+			\item Before sending the registration form, the guest will be asked to accept the terms and conditions contract.
 		\end{itemize}
 
 
-\subsubsection{User Login}
+\subsubsection{User login/taxi driver login}
 Users must be logged in the system to use its services.
 During the login process users must choose the type of account (user or taxi), insert the username and the password. If everything is fine, then the users are redirected to their homepage.
-In the user Login page, users, who are not already registered, can be redirected to the Registration page.
+In the 'user login' page, guests can be redirected to the 'registration' page.
 
 	\subparagraph{Functional requirements}
 	\noindent
 		\begin{itemize}
 			\item In the 'user field', users can insert the email or the username chosen during the registration phase.
-			\item If a user makes a mistake while inserting the credentials, a suggestion field in the page pops up, and it will help the user to recover the credentials.
+			\item If a user makes a mistake while inserting the credentials, a suggestion field in the page pops up, and it will help the user to recover his credentials.
 			\item After inserting the password for 3 times, the account freezes and the user receives an e-mail with the instructions to unfreeze the account.
 			\item The 'username field' is case insensitive.
 			
 		\end{itemize}
 
-\subsubsection{User home page}  
+\subsubsection{User home page/taxi driver home page}  
 After the login process, users are redirected to their main page. Here they have the possibility to choose different actions to perform.
 For example, they can reset their password, change personal information or delete their account.
 If the user who reached this page is a generic user, he can choose the option of creating a request or a reservation.
@@ -57,9 +57,10 @@ If the user is a taxi driver, there are others types of actions available: for i
 			\begin{itemize}
 				\item Change password.
 				\item Change account information.
-				\item Delete account.
 				\item Make a taxi request.
 				\item Make a Reservation.
+				\item Delete requests or reservation.
+				\item Visualize all the requests/reservations done.
 				\item View the history of all the rides done.
 			\end{itemize}
 			\item A taxi driver user can:
@@ -86,7 +87,7 @@ If the user is a taxi driver, there are others types of actions available: for i
 		\end{itemize}
 
 
-\subsubsection{Activation/deactivation of the taxi service}
+\subsubsection{Activation/deactivation of the taxi services}
 When a taxi driver is visiting his home page in the application, he should be able to activate or deactivate his taxi service sending a notification to the system.
 When the system receives the notification from the user application about activating/deactivating the taxi system, it checks if the GPS installed in the car connected to the account is on. If there are no errors the taxi is put into a taxi zone queue/removed from the queue. And the system sends him a notification
 
@@ -131,13 +132,14 @@ The user should be able to make a taxi request from the web application and the 
 
 
 \subsubsection{Taxi driver notification handling}
-After a taxi driver activates the taxi service, he can receive a notification request for a taxi ride. He can accept or refuse the request. If the request is accepted he has to go to the origin location indicated in the notification.
+After a taxi driver activates the taxi service, he can receive a notification request for a taxi ride. He can accept or refuse the request. If the request is accepted, he has to go to the origin location indicated in the notification.
 
     \subparagraph{Functional requirements}
     \noindent
         \begin{itemize}
             \item After the taxi driver receives a notification, if the system does not receive an answer within 1 minute, the notification is passed to the following driver in the taxi queue.
-            \item If there are no available taxi drivers in a city zone, the system send the notification to the nearest free taxi driver.
+            \item If there are no available taxi drivers in a city zone, the system looks for an available taxi for a maximum of 10 times. 
+            \item If the system can not find an available taxi, it sends a notification of failure to the user.
             \item When the taxi reaches the origin zone, the system asks him to confirm the begin of the ride.
             \item When the taxi reaches the destination zone, the system asks him to confirm the end of the ride.
             \item After the taxi driver confirms the begin of a ride, the system sets his status to 'busy'.
@@ -147,13 +149,13 @@ After a taxi driver activates the taxi service, he can receive a notification re
         
         
 \subsubsection{Zone queue handling}
-The system has to handle the queue of the taxis in the different city zones. It has to schedule the requests and send them to the right taxi.
+The system has to manage the queue of taxi in all the different city zones. It has to schedule the requests and send them to the right taxi.
     
 	\subparagraph{Functional requirements}
 	\noindent
 	    \begin{itemize}
 	        \item The queues use the FIFO policy.
 	        \item When a taxi connects to the system and sets its status to 'available', the system insert it into a queue.
-	        \item The queue is identified by the GPS positions of the city zones. So taxi are put in the queues according to their GPS location.
+	        \item The queue is identified by the GPS positions of the city zones: taxi are put in the queues according to their GPS location.
 	    \end{itemize}
     

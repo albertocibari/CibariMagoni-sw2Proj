@@ -1,14 +1,15 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
-\usepackage{fullpage}
+
 \usepackage{comment}
+\usepackage{graphicx}
 \usepackage{titlesec}
 
 \setcounter{secnumdepth}{4}
 \renewcommand{\baselinestretch}{1.3} 
 
 \title{
-	\Huge{\textbf{myTaxiService}}
+	\Huge{\textbf{\centerline{myTaxiService}}}
 	\newline
 	\huge{\textbf{R}equirement \textbf{A}nalysis and \textbf{S}pecification \textbf{D}ocument}
 }
@@ -17,14 +18,14 @@
 	\\
 	Alberto Cibari 852689
 }
-\date{October 2015}
+\date{\today}
 
 \begin{document}
 
 	\maketitle
 	\newpage
 	\addtocontents{toc}{~\hfill\textbf{Page}\par}
-	\renewcommand*\contentsname{\Huge{Summary}}
+	\renewcommand*\contentsname{\Huge{Contents}}
 	\tableofcontents
 	
 	\newpage
@@ -87,10 +88,18 @@
 	\subsection{Scenarios}
 	\input{Sections/SpecificRequirements/Scenarios.tex}
 	
+	\subsection{Class Diagram}
+	\input{Sections/SpecificRequirements/ClassDiagram.tex}
+	
+	\newpage
 	\subsection{Function sequence diagrams}
 	\input{Sections/SpecificRequirements/SequenceDiagrams.tex}
 	
 	\subsection{Non-functional requirements}
 	\input{Sections/SpecificRequirements/NonFunctionalRequirements.tex}
-	
+
+\newpage	    
+\section{Bibliography}
+    \input{Sections/Bibliography/Bibliography.tex}
+
 \end{document}

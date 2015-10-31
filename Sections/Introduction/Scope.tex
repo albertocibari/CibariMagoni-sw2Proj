@@ -1,11 +1,13 @@
 The aim of our project is to optimize the taxi service of a large city. 
-Passengers, once registered to the application, will have the possibility to request a taxi through either the web application or the mobile application. When a request from a passenger arrives, the system-to-be will be able to look for an available taxi (through a fair management of the taxi queue) and send to the passenger the code of the incoming taxi and the waiting time. Taxi drivers will inform the system of their availability and confirm a certain call thanks to a mobile application.
+Passengers, once registered to the application, will have the possibility to request a taxi through either the web application or the mobile application. When a request from a passenger arrives, the system-to-be will be able to look for an available taxi (through a fair management of the taxi queues) and send to the passenger the code of the incoming taxi and the waiting time. 
 \newline
-If the first taxi of the queue is not available, the system will forward the request to the second taxi of the queue and put the first taxi in the last position of the queue. This process will continue until the system finds an available taxi, in order to satisfy the passenger's request.
+The management of taxi queues is explained as follows: if the first taxi of the queue is not available, the system will forward the request to the second taxi of the queue and put the first taxi in the last position of the queue. This process will continue until the system finds an available taxi, in order to satisfy the passenger's request.
 \newline
-Our system will allow passengers to reserve a taxi in advance, by specifying the origin and the destination of their journey. The reservation must occur at least two hours before the ride and the system will inform the taxi driver ten minutes before the scheduled time.
+Moreover, our system will also offer a mobile application for taxi drivers so that they will be able to share their availability and confirm a certain call.
 \newline
-Our system will also offer some programmatic interfaces for the development of additional functions, such as taxi sharing.
+Another functionality that our system will offer to users is the reservation of a taxi. Users will have the possibility to reserve a taxi in advance, by specifying the origin and the destination of their journey. The reservation must occur at least two hours before the ride and the system will inform the taxi driver ten minutes before the scheduled time.
 \newline
-The system offers interfaces (APIs) to enable the developement of new services.
+Our system will provide some programmatic interfaces for the development of additional functions, such as taxi sharing.
+\newline
+The system will offer interfaces (APIs) to enable the developement of new services.
 One of these services is the 'Taxi Sharing' option.
