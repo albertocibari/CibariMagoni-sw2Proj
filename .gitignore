@@ -3,3 +3,4 @@ myTaxiService.aux
 myTaxiService.pdf
 myTaxiService.toc
 *.gz
+*.db
