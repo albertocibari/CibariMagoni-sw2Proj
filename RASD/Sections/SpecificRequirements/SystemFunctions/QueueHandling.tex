@@ -1,0 +1,9 @@
+The system has to manage the queue of taxi in all the different city zones. It has to schedule the requests and send them to the right taxi.
+    
+\subparagraph{Functional requirements}
+\noindent
+    \begin{itemize}
+        \item The queues use the FIFO policy.
+        \item When a taxi connects to the system and sets its status to 'available', the system insert it into a queue.
+        \item The queue is identified by the GPS positions of the city zones: taxi are put in the queues according to their GPS location.
+    \end{itemize}

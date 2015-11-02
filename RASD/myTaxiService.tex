@@ -1,9 +1,12 @@
-\documentclass{article}
+\documentclass[12pt, a4paper]{article}
 \usepackage[utf8]{inputenc}
 
 \usepackage{comment}
 \usepackage{graphicx}
 \usepackage{titlesec}
+\usepackage{url}
+\usepackage{float}
+\usepackage{longtable}
 
 \setcounter{secnumdepth}{4}
 \renewcommand{\baselinestretch}{1.3} 
@@ -38,6 +41,9 @@
 	\subsection{Scope}
 	\input{Sections/Introduction/Scope.tex}
 	
+	\subsection{Goals}
+	\input{Sections/Introduction/Goals.tex}
+	
 	\subsection{Actors}
 	\input{Sections/Introduction/Actors.tex}
 	
@@ -63,7 +69,7 @@
 	\subsection{User characteristics}
 	\input{Sections/OverallDescription/userCharacteristics.tex}
 	
-		\subsection{Product functions}
+	\subsection{Product functions}
 	\input{Sections/OverallDescription/Functions.tex}
 	
 	\subsection{Assumptions and Dependencies}
@@ -88,6 +94,7 @@
 	\subsection{Scenarios}
 	\input{Sections/SpecificRequirements/Scenarios.tex}
 	
+	\newpage
 	\subsection{Class Diagram}
 	\input{Sections/SpecificRequirements/ClassDiagram.tex}
 	
@@ -95,11 +102,14 @@
 	\subsection{Function sequence diagrams}
 	\input{Sections/SpecificRequirements/SequenceDiagrams.tex}
 	
-	\subsection{Non-functional requirements}
+	\subsection{Software system requirements}
 	\input{Sections/SpecificRequirements/NonFunctionalRequirements.tex}
 
-\newpage	    
+\newpage
 \section{Bibliography}
     \input{Sections/Bibliography/Bibliography.tex}
-
+    
+\section{Appendix}
+    \input{Sections/Appendix/Appendix.tex}
+    
 \end{document}

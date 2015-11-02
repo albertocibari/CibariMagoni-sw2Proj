@@ -1,0 +1,39 @@
+When a taxi driver is visiting his home page in the application, he should be able to activate or deactivate his taxi service sending a notification to the system.
+When the system receives the notification from the user application about activating/deactivating the taxi system, it checks if the GPS installed in the car connected to the account is on. If there are no errors the taxi is put into a taxi zone queue/removed from the queue. And the system sends him a notification
+
+\subparagraph{Use case}
+\noindent
+    \begin{center}
+        \begin{longtable}{| l | p{0.6\textwidth} |}
+            \hline
+            Actor & Taxi Driver \\
+            \hline
+            Goal & Goal~\ref{g-manage}
+            \\
+            \hline
+            Input condition & A taxi driver enters his account page and tries to change his status. \\
+            \hline
+            Event Flow & 
+                \begin{enumerate}
+                	\item The taxi driver changes his status from his account page using the buttons in the account page.
+            	\end{enumerate}
+            \\
+            \hline
+            Output condition & The system confirms the change sending a notification to the taxi driver.\\
+            \hline
+            Exception & 
+            \begin{itemize}
+               \item If the GPS on the car isn't active, when the taxi driver tries to set is status to "available", the application alerts the user to retry the operation.
+            \end{itemize} \\
+            \hline
+        \end{longtable}
+    \end{center}
+
+\subparagraph{Functional requirements}
+\noindent
+	\begin{itemize}
+		\item The activation of the service can occur only if the GPS installed on the car is active, otherwise the taxi driver receives an alert on his application.
+		\item If the system can not receive the GPS signal every 5 minutes, it sends a notification to the user.
+		\item If the system can not receive the GPS signal for more than 20 minutes, the taxi service is deactivated.
+		\item The taxi service can be deactivated only if the user isn't taking a request/reservation.
+	\end{itemize} 

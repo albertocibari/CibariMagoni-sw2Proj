@@ -1,0 +1,40 @@
+After the login process, users are redirected to their main page. Here they have the possibility to choose different actions to perform.
+For example, they can reset their password, change personal information or delete their account.
+If the user who reached this page is a generic user, he can choose the option of creating a request or a reservation.
+If the user is a taxi driver, there are others types of actions available: for instance, he can view the pending requests sent by the system and accept or decline them.
+
+\subparagraph{Functional requirements}
+\noindent
+	\begin{itemize}
+		\item A generic user can:
+		\begin{itemize}
+			\item Change password.
+			\item Change account information.
+			\item Make a taxi request.
+			\item Make a Reservation.
+			\item Delete requests or reservation.
+			\item Visualize all the requests/reservations done.
+			\item View the history of all the rides done.
+		\end{itemize}
+		\item A taxi driver user can:
+		\begin{itemize}
+			\item Change password.
+			\item Change account information.
+			\item Delete account.
+			\item View the history of all the rides done.
+			\item Activate/Deactivate taxi service.
+			\item View the pending request.
+			\item Track the taxi via GPS.
+		\end{itemize}
+		
+		\item During the 'password changing' phase, the old password should provided with the new one.
+		\begin{itemize}
+			\item The new password must be an alphanumeric string with at least a number and a uppercase character.
+			\item The new password length must be between 8 and 16 characters. 
+			\item The new password must be different from the old one.
+		\end{itemize}
+		\item During the 'account deletion' phase, after the confirmation of the user, a mail is sent to him with a link that allows to deactivate the account.
+		\item The deletion account function delete the account but keeps all the user information. The information are kept as history in the DB.
+		\item Activate/Deactivate taxi service: the taxi driver use this function to tell the system to activate/deactivate the taxi service adding/removing him from the taxi queues in the city zones.
+		\item A request received by a taxi driver is displayed in his main page for one minute, then it is passed to the next user in the city zone queue.
+	\end{itemize}
