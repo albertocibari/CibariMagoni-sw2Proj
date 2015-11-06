@@ -9,7 +9,8 @@ sig Date{}
 sig Location{}
 
 /*
- * Enum that defines the possible status of a taxi driver in the system
+ * Enum that defines the possible status of a taxi driver 
+ * in the system
  */
 enum TaxiStatus{
 	AVAILABLE,
@@ -18,7 +19,8 @@ enum TaxiStatus{
 }
 
 /*
- *	Enum that defines the possible status of a request in the system
+ *	Enum that defines the possible status of a request 
+ * in the system
  */
 enum RequestStatus{
 	WAITING,
@@ -30,19 +32,21 @@ sig User{
 	request: set Request
 }
 
-sig TaxiDriver extends User{
+sig TaxiDriver{
+	request: set Request,
 	status:  one TaxiStatus
 }
 
 sig CityZone{
 	borders: set Location,
 	queue: one Queue
-}{
-	#borders >= 3 // Each zone must have at least three points (three locations)
+}{ 
+	//Each zone must have at least three points (three locations)
+	#borders >= 3 
 }
 
 /*
- * Signature defining the queue associated with a CityZone
+ * Signature defining the queue associated to a CityZone
  * and containing the list of the taxi in the zone
  */
 sig Queue{ 
@@ -50,10 +54,11 @@ sig Queue{
 	zone: one CityZone, 
 	taxiList: set TaxiDriver 
 } { 
-	// The number of taxi must be lesser than the maximum length of the queue
+	//The number of taxi must be lesser
+	//than the maximum length of the queue
 	#taxiList <= maxQueueLength 
 
-	// The maximum length of the queue must be equal or greater than 0
+	//The maximum length of the queue must be equal or greater than 0
 	maxQueueLength >= 0 
 }
 
@@ -64,14 +69,14 @@ sig TrackLog{
 }
 
 /*
- * Signature defining a request with its associations with the users
- * and the locations
+ * Signature defining a request with its associations
+ * with the users and the locations
  */
 sig Request{
 	requestStatus: one RequestStatus,
 	originLocation: one Location,
 	private destinationLocation: lone Location,
-	taxiDriver: one TaxiDriver,
+	taxiDriver: lone TaxiDriver,
     user: one User
 }{
 	originLocation != destinationLocation
@@ -89,58 +94,46 @@ sig Reservation extends Request{
  */
 
 /*
- * Every cityZone has only one queue and every queue refers to only one cityZone
+ * Every cityZone has only one queue and every queue refers
+ * to only one cityZone
  */
 fact AssociationQueueZone{
 	all q: Queue,  z: CityZone | 
-		(z.queue = q) <=> (q.zone = z)
+		(z.queue = q) iff (q.zone = z)
 }
 
 /*
- * A taxi driver is in at least a queue if and only if his status is 'available'
+ * A taxi driver is in only a queue 
+ * if and only if his status is 'available'
  */
 fact AvailableTaxiStatus{
 	all t : TaxiDriver | 
-		( t.status = AVAILABLE) 	<=> (
-			some q : Queue | t in q.taxiList
+		( t.status = AVAILABLE) iff (
+			one q : Queue | t in q.taxiList
 		)
 }
 
 /*
- * Avoid that a taxi driver is associated to a request that is 
- * already associated to another taxi driver
+ * If a request is associated to a taxi driver, then the 
+ * taxi driver must be associated to that request
  */
-fact NoBusyRequest{ 
-	all t : TaxiDriver, r : Request |
-		(t.request = r) <=> (r.taxiDriver = t)
+fact AssociationTaxiRequest{ 
+	all t : TaxiDriver, r : Request | 
+		(r.taxiDriver = t) iff (r in t.request)
 }
 
 /*
- * Avoid that a request has associated as a user a taxi driver
- */
-fact NoUserAsATaxiDriver{ 
-	no u : User, t : TaxiDriver, r : Request | 
-		(r.user = u) and (u = t)
-}
-
-/*
- * Each taxi driver can be associated to at most a queue
+ * If a request is associated to a user, then the user 
+ * must be associated to that request
  */
 fact AssociationUserRequest{
 	all u: User, r: Request | 
-		(r.user = u) => (r in u.request)
+		(r.user = u) iff (r in u.request) 
 }
 
 /*
- * If a request is assocuiated to a user, then the user must be associated to that request
- */
-fact AssociationUserRequest{
-	all u: User, r: Request | 
-		(r.user = u) => (r in u.request) and (r in u.request) => (r.user = u)
-}
-
-/*
- * There can not exist two logs that refer to the same taxi driver and the same date
+ * There can not exist two logs that refer
+ * to the same taxi driver and the same date
  */
 fact NoLogSameDayPerTaxiDriver{
 	no l1, l2: TrackLog |
@@ -148,7 +141,8 @@ fact NoLogSameDayPerTaxiDriver{
 }
 
 /*
- * A user can only be associated to a request if it is in the WAITING or RUNNING status
+ * A user can be associated to only a request 
+ * which status is 'running' or 'waiting'
  */
 fact OnlyOneWaitingOrRunningRequestPerUser{
 	no u: User,  r1, r2: Request |
@@ -159,41 +153,73 @@ fact OnlyOneWaitingOrRunningRequestPerUser{
 		)
 }
 
-/* 
- * If the status of a request is 'RUNNING', it means that the status 
- * of the taxi driver who is associated to that request must be 'NON_AVAILABLE'
-*/
-fact AvalabilityOfTaxiDriver{
-	all r : Request, t : TaxiDriver | 
-		(r.requestStatus = RUNNING) and (r.taxiDriver = t) => (t.status = NON_AVAILABLE)
+/*
+ * A taxi driver can be associated to only a request 
+ * which status is 'running'
+ */
+fact OnlyOneWaitingOrRunningRequestPerTaxi{
+	no t : TaxiDriver,  r1, r2: Request |
+		(r1 != r2) and (r1.taxiDriver = t) and (r2.taxiDriver = t) and
+		(r1.requestStatus = RUNNING and r2.requestStatus = RUNNING)
 }
 
 /* 
- * If the status of a taxi driver is 'NON_AVAILABLE' or 'OFFLINE'
+ * If the status of a request is 'running', it means that 
+ * the status of the taxi driver who is associated 
+ * to that request must be 'non available'. 
+ * If the status of the taxi driver is 'non available'
+ * then there must be only one request which is 'running'
+ * assoicated to that driver
+*/
+fact AvalabilityOfTaxiDriver{
+	all r : Request, t : TaxiDriver | 
+		(r.requestStatus = RUNNING) and (r.taxiDriver = t) 
+		implies (t.status = NON_AVAILABLE)
+	all t : TaxiDriver | 
+		t.status = NON_AVAILABLE
+		implies (one r : Request |r.requestStatus = RUNNING and (r.taxiDriver = t))
+}
+
+/* 
+ * If the status of a taxi driver is 'non available' or 'offline'
  * it means that he isn't in any queue of the city zones.
 */
 fact taxiNotAvailableInQueues{
 	all t : TaxiDriver |
-		(t.status = NON_AVAILABLE or  t.status = OFFLINE) =>(
-			no q: Queue |(t in q.taxiList)
-		)
+		(t.status = NON_AVAILABLE or  t.status = OFFLINE) 
+		implies ( no q: Queue |(t in q.taxiList)	)
 }
 
 /* 
- * If the status of a taxi driver is 'OFFLINE'
- * it means that he isn't associated to any request
+ * If the status of a taxi driver is 'offline'
+ * it means that he is not associated to any request which 
+ * status is 'running' or 'waiting'
 */
 fact taxiNotAvailableInQueues{
 	all t : TaxiDriver |
-		(t.status = OFFLINE) =>(
-			no r: Request |( t = r.taxiDriver)
+		(t.status = OFFLINE) implies (
+			no r: Request |( t = r.taxiDriver) and 
+			(r.requestStatus = RUNNING or r.requestStatus = WAITING)
 		)
 }
 
-pred showEasyVersion{
+/*
+ * If the status of a request is 'waiting',
+ * it means that there are no taxi drivers associated to.
+ * If the status of the request is 'running' or 'completed',
+ * there is only one taxi driver who is associated to.
+*/
 
-	#CityZone = 2
-
+fact TaxiRequestAssociationWaiting{
+	all r : Request | (r.requestStatus = WAITING)
+		implies (no t: TaxiDriver | r.taxiDriver = t and r in t.request)
+	all r : Request | (r.requestStatus = RUNNING 
+		or r.requestStatus = COMPLETED)
+			implies (one t: TaxiDriver | r.taxiDriver = t and r in t.request)
 }
 
-run showEasyVersion
+
+pred showCompeteScenario{
+}
+
+run showCompeteScenario

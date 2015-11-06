@@ -1,0 +1,34 @@
+\definecolor{keyword}{RGB}{30, 30, 183}
+\definecolor{comment}{RGB}{63, 148, 63}
+\definecolor{string}{RGB}{183, 10, 183}
+
+% Settings for Alloy code listing.
+\lstset{
+    language=alloy,
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    tabsize=2,
+    keywordstyle=\color{keyword}\bfseries,
+    commentstyle=\color{comment},
+    stringstyle=\color{string},
+    basicstyle=\small\fontfamily{pcr}\selectfont
+}
+
+% Includes the Alloy model file.
+\lstinputlisting{Alloy/alloy.als}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=13cm]{./Alloy/Scenarios/ScenarioGenerale1.png}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{./Alloy/Scenarios/ScenarioGenerale2.png}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./Alloy/Scenarios/ScenarioGenerale3.png}
+\end{figure}

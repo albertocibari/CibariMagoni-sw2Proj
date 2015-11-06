@@ -11,15 +11,12 @@
   },
   literate=%
     {:}{$\colon$}1
-    {|}{$\bullet$}1
     {==}{$=$}1
     {=}{$=$}1
-    {!=}{$\neq$}1
     {&&}{$\land$}1
     {||}{$\lor$}1
     {<=}{$\le$}1
     {>=}{$\ge$}1
-    {all}{$\forall$}1
     {exists}{$\exists$}1
     {!in}{$\not\in$}1
     {\\in}{$\in$}1
@@ -77,11 +74,12 @@
   numbers=none,
   firstnumber=1,
   numberstyle=\tiny,
-  stepnumber=2,
-  basicstyle=\scriptsize\ttfamily,
-  commentstyle=\itshape,
-  keywordstyle=\bfseries,
-  ndkeywordstyle=\bfseries,
+    stepnumber=1,
+    tabsize=2,
+    keywordstyle=\color{keyword}\bfseries,
+    commentstyle=\color{comment},
+    stringstyle=\color{string},
+    basicstyle=\small\fontfamily{pcr}\selectfont,
 }
 
 % inline
