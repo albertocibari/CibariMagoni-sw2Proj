@@ -10,6 +10,12 @@
 \usepackage{listings}
 \usepackage{color}
 
+% Definition of \subparagraph starting new line after heading
+\titleformat{\subparagraph}
+    {\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
+\titlespacing*{\subparagraph}{\parindent}{3.25ex plus 1ex minus .2ex}{.75ex plus .1ex}
+\setlength{\parindent}{0pt}
+
 
 \setcounter{secnumdepth}{4}
 \renewcommand{\baselinestretch}{1.3} 
@@ -58,34 +64,26 @@
     \section{Architectural Design}
     
     	\subsection{Overview}
-    	%\input{}
+    	    \input{Sections/ArchitecturalDesign/Overview.tex}
     	
     	\subsection{High level components and their interaction}
-    	\input{Sections/ArchitecturalDesign/HighLevel.tex}
+    	    \input{Sections/ArchitecturalDesign/HighLevel.tex}
  
         \subsection{Component view}
-    	%\input{}
-    	
-    	\subsection{Component interfaces}
-    	%\input{}
+            \input{Sections/ArchitecturalDesign/ComponentView.tex}
     	
     	\subsection{Deployment view}
-    	%\input{}
-    	?? struttura fisica ??
+    	    \input{Sections/ArchitecturalDesign/DeploymentView.tex}
+    	
+    	\subsection{Component interfaces}
+    	    \input{Sections/ArchitecturalDesign/ComponentInterfaces.tex}
     	
     	\subsection{Runtime view}
-    	%\input{}
-    	Sequence diagrams:
-    	- Login
-    	- Registration
-    	- Taxi Request
+    	\input{Sections/ArchitecturalDesign/RuntimeView.tex}
     	
     	
     	\subsection{Selected architectural styles and patterns}
-    	%\input{}
-    	
-    	\subsection{Other design decisions}
-    	%\input{}
+    	\input{Sections/ArchitecturalDesign/StylesPatterns.tex}
     	
     \newpage	    
     \section{Algorithm Design}
@@ -102,5 +100,9 @@
         
     \newpage
     \section{References}
-        %\input{}
+        \input{Sections/References/Reference.tex}
+        
+    \newpage
+    \section*{Appendix}
+        \input{Sections/Appendix/Appendix.tex}
 \end{document}
