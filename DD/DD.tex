@@ -9,6 +9,7 @@
 \usepackage{longtable}
 \usepackage{listings}
 \usepackage{color}
+\usepackage[bottom]{footmisc}
 
 % Definition of \subparagraph starting new line after heading
 \titleformat{\subparagraph}
@@ -48,7 +49,7 @@
     	\input{Sections/Introduction/Purpose.tex}
     	
     	\subsection{Scope}
-    	%\input{}
+    	\input{Sections/Introduction/Scope.tex}
     	
     	\subsection{Definitions, acronyms, abbreviations}
     	\input{Sections/Introduction/Definitions.tex}
@@ -87,16 +88,15 @@
     	
     \newpage	    
     \section{Algorithm Design}
-        Gestione coda
+         \input{Sections/AlgorithmDesign/algorithmDesign.tex}
     
     \newpage
     \section{User Interface Design}
-        %\input{}
-        UX Diagram, mockups...
+        \input{Sections/UserInterfaces/UserInterfaces.tex}
         
     \newpage
     \section{Requirements Traceability}
-        %\input{}
+        \input{Sections/RequirementTraceability/RequirementTraceability.tex}
         
     \newpage
     \section{References}

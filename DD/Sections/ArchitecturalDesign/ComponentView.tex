@@ -6,15 +6,11 @@
 \end{figure}
 
 
-\subparagraph{Account Manager}
-This component handles the account of a user providing two different interfaces in order to allow all the users to manage their account. One interface is used by the taxi driver and the other by the other users.
-This component manages:
-\begin{itemize}
-    \item Modification of personal data.
-    \item Modification of the account's password.
-    \item Visualization of the list of old requests.
-    \item Modification of the status of a taxi driver.
-\end{itemize}
+\subparagraph{Registration Manager}
+This component handles the registration of a new user into the system, using some interfaces offered by the Security component.
+
+\subparagraph{Login Manager}
+This component handles the login of a user into the system, using some interfaces offered by the Security component.
 
 \subparagraph{Database Manager}
 This component manages the interaction with the database providing all the information asked by all the other components.
@@ -23,7 +19,7 @@ This component manages the interaction with the database providing all the infor
 This component coordinates all the zones the city is divided in.
 \begin{itemize}
     \item It create the queues of every zone.
-    \item When a taxi driver leaves a queue, the QueueManager notifies this component and it searches the taxi driver associating it to a new queue.
+    \item When a taxi driver leaves a zone, the taxi driver must be removed from the previous queue in which he was, so the ZoneManager notifies the QueueManager, telling him the new zone of the taxi and the associated queue.
 \end{itemize}
 
 \subparagraph{Queue Manager}
@@ -42,7 +38,8 @@ This component manages all the incoming/waiting calls for a taxi.
 \end{itemize}
 
 \subparagraph{Position}
-The scope of this component is to get the GPS positions of all the taxi drivers and send the information to the QueueManager, and get the position of a user mobile phone who is creating a call request and send it to the CallManager.
+The scope of this component is to get the GPS positions of the devices that use it. Those components after using it send the data to the various components in the system. In particular The Taxi Driver component uses the data got by the Position component to track his position sending the information to the Queue Manager.
 
 \subparagraph{Security}
 This component offers some interfaces to grant security to the whole system.
+For example  it prevent a user to have multiple login session on different devices at the same time.

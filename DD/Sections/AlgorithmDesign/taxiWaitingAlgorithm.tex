@@ -1,0 +1,36 @@
+\subsection{Waiting time}
+In this section are described the procedures the system uses to tell the users the remaining time before a taxi arrives or the remaining time before the arrive to the destination of a ride.
+The calculations are made by the Google Maps API.
+
+These APIs are used making HTTPS requests to \newline \emph{http://maps.googleapis.com/maps/api/directions/xml}
+with the following parameters:
+\begin{itemize}
+    \item origin: the current location of the user
+    \item destination: the arriving point
+    \item departure\_time: the current time
+    \item traffic\_model: 'best\_guess'. This is the best estimate of travel time given what is known about both historical traffic conditions and live traffic. 
+    \item mode: 'driving'
+    \item key: API\_KEY. This is the application's API key.
+\end{itemize}
+
+
+Whenever a user is waiting for the arrive of a taxi or he is waiting to reach the destination, he can view the remaining time for the arrive.
+
+\subparagraph{Case 1: taxi waiting}
+In this case the user is waiting for the arrive of a taxi driver.
+After he received the notification for his request acceptance, he can view the remaining time.
+\begin{itemize}
+    \item The device of the user makes a request to the CallManager telling it to calculate the remaining time.
+    \item The CallManager makes a request to the Google Maps services requesting the data in XML format.
+    \item after receiving the XML response the CallManager send it to the client device that displays it.
+    \item Every minute the device redoes the request for displaying a new waiting time.
+\end{itemize}
+
+\subparagraph{Case 2: arrive to destination time}
+In this case the user wants to know when he will arrive to the destination during a taxi ride.
+\begin{itemize}
+    \item The device, when the user wish to know, makes a request to the CallManager telling it to calculate the remaining time.
+    \item The CallManager makes a request to the Google Maps services requesting the data in XML format.
+    \item after receiving the XML response the CallManager send it to the client device that displays it in the request details page.
+\end{itemize}
+

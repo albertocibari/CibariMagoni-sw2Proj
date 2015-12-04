@@ -1,0 +1,30 @@
+This section has the aim to map the DD document with the RASD.
+\newline
+In particular, our intent is to provide a specific mapping between the functional requirements identified in the RASD to the components described in the DD document. This mapping can be easily verified in the 'Runtime View' section, by analyzing the Sequence Diagrams.
+
+\begin{table}[h]
+\begin{center}
+    \begin{tabular}{|l|p{0.5\textwidth}|}
+        \hline
+        {\bf Functional requirements}  & {\bf Components}\\
+        \hline
+        Guest registration & RegistrationManager, GenericUser, DB Manager, DB\\
+        \hline
+        User/taxi login & LoginManager, User/TaxiDriver, DB Manager, DB, Security\\
+        \hline
+        User/taxi home page & AccountManager, User/TaxiDriver, DB Manager, DB, Security\\
+        \hline
+        Activation/deactivation of taxi service & TaxiDriver, Position, ZoneManager, QueueManager, DB Manager, DB\\
+        \hline
+        Request making & CallManager, User, TaxiDriver, QueueManager, ZoneManager, Position, DB Manager, DB\\
+        \hline
+        Reservation making & CallManager, User, TaxiDriver, QueueManager, ZoneManager, Position, DB Manager, DB\\
+        \hline
+        Taxi driver notification handling & TaxiDriver, CallManager, ZoneManager, QueueManager, Position, DB Manager, DB\\
+        \hline
+        Zone queue handling & ZoneManager, QueueManager, Position, TaxiDriver, DB Manager, DB \\
+        \hline
+    \end{tabular}
+    \caption{Mapping between functional requirements and components}
+\end{center}
+\end{table}
