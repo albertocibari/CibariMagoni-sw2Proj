@@ -1,15 +1,16 @@
 \subsection{Taxi queue management}
-In this section are described the procedures the system uses to manage the taxi queues.
-The taxi are distributes in various zone the city is divided in. Each zone has a taxi queue in which available taxi are.
-The management of taxi is executed by the QueueManager and ZoneManager components.
+This section describes the procedures the system uses to manage the taxi queues.
+\newline
+The taxi are distributed in the various zones the city is divided in. Each zone has a taxi queue in which there are only taxi whose status is 'AVAILABLE'.
+QueueManager and ZoneManager components are responsible for managing the taxi.
 
-The algorithm is executed when one of these events occur:
+The algorithm is executed when one of these events occurs:
 \begin{enumerate}
-    \item taxi driver changes his status
-    \item taxi driver changes zone 
-    \item taxi driver accepts the call 
-    \item taxi driver refuses the call 
-    \item taxi driver sets a call as 'COMPLETED' 
+    \item A taxi driver changes his status.
+    \item A taxi driver changes zone.
+    \item A taxi driver accepts a call.
+    \item A taxi driver refuses a call.
+    \item A taxi driver sets a call as 'COMPLETED'.
 \end{enumerate}
 For each event the system behaves in a different way.
 
@@ -19,25 +20,25 @@ The system variables used by this algorithm are:
     \item $T$: the list of taxi drivers that are not in a queue, but are logged into the system.
 \end{itemize}
 
-Whenever the system receives an event $e$ with the  the algorithm is executed
+Whenever the system receives an event $e$ the algorithm is executed.
 \subparagraph{Event: taxi driver changes his status}
 \begin{itemize}
-    \item from 'OFFLINE' or 'NOTAVAILABLE' to 'AVAILABLE': the taxi driver reference is put into the queue $Q_i$ referred to the Zone $i$. To find the right zone and queue the algorithm uses the parameters passed to the event $e$, which are: the reference of the taxi driver, his location and the type of event.
+    \item from 'OFFLINE' or 'NOTAVAILABLE' to 'AVAILABLE': the taxi driver reference is put into the queue $Q_i$ referred to the zone $i$. To find the right zone and queue the algorithm uses the parameters passed to the event $e$, which are: the reference of the taxi driver, his location and the type of event.
     \item from 'AVAILABLE' or 'NOTAVAILABLE' to 'OFFLINE': the taxi driver is removed from the $Q_i$ or the $T$ queues.
     \item from 'AVAILABLE' to 'NOTAVAILABLE': the taxi driver is removed from the queue $Q_i$ and put into the $T$ queue.
 \end{itemize}
 
 \subparagraph{Event: taxi driver changes zone}
 This event is triggered when the ZoneManager realizes that the taxi driver has changed zone and notifies the QueueManager.
-When this event occurs the taxi driver is removed from the $Q_i$ queue list where the taxi is currently in and he is put into the new $Q_k$ queue referred to the new zone he entered.
+When this event occurs the taxi driver is removed from the $Q_i$ queue list where the taxi is currently in and he is put into the new $Q_k$ queue associated to the new zone he entered.
 
 \subparagraph{Event: taxi driver accepts the call}
-When a taxi driver accepts a request this event is fired. 
-The algorithm removes the taxi driver from the $Q_i$ zone and put it into the $T$ queue
+When a taxi driver accepts a request, this event is fired. 
+The algorithm removes the taxi driver from the $Q_i$ zone and put it into the $T$ queue.
 
 \subparagraph{Event: taxi driver refuses the call}
-When a taxi driver refuses a request this event is fired. 
-The algorithm removes the taxi driver from the first position of the $Q_i$ queue and he is put in the last position of the same queue.
+When a taxi driver refuses a request, this event is fired. 
+The algorithm removes the taxi driver from the first position of the $Q_i$ queue and put him in the last position of the same queue.
 
 \subparagraph{Event: taxi driver sets a call as 'COMPLETED'}
-When a taxi driver sets a call as 'COMPLETED' he becomes available, so he is put at the end of the $Q_i$ queue.
+When a taxi driver sets a call as 'COMPLETED', he becomes 'AVAILABLE', so he is put at the end of the $Q_i$ queue.

@@ -10,24 +10,25 @@
 This component handles the registration of a new user into the system, using some interfaces offered by the Security component.
 
 \subparagraph{Login Manager}
-This component handles the login of a user into the system, using some interfaces offered by the Security component.
+This component is responsible for the login process of a user into the system; it will use some interfaces offered by the Security component.
 
 \subparagraph{Database Manager}
-This component manages the interaction with the database providing all the information asked by all the other components.
+This component manages the interaction with the database; it is responsible for providing all the information asked by all the others components and also sending new data or modifications to the database.
 
 \subparagraph{Zone Manager}
 This component coordinates all the zones the city is divided in.
 \begin{itemize}
-    \item It create the queues of every zone.
+    \item It creates the queues of every zone.
+    \item It receives the taxi drivers positions and it is able to compute the zone in which the taxi is.
     \item When a taxi driver leaves a zone, the taxi driver must be removed from the previous queue in which he was, so the ZoneManager notifies the QueueManager, telling him the new zone of the taxi and the associated queue.
 \end{itemize}
 
 \subparagraph{Queue Manager}
 This component manages the taxi drivers in a certain zone.
 \begin{itemize}
-    \item Add/delete a taxi driver from the queue
-    \item Change the position of taxi drivers in the queues.
-    \item When a request is incoming it searches for the right taxi driver to send the request to.
+    \item It adds/deletes a taxi driver from a queue.
+    \item It changes the positions of taxi drivers in the queues.
+    \item When a request is incoming, it searches for the right taxi driver to send the request to.
 \end{itemize}
 
 \subparagraph{Call Manager}
@@ -38,8 +39,8 @@ This component manages all the incoming/waiting calls for a taxi.
 \end{itemize}
 
 \subparagraph{Position}
-The scope of this component is to get the GPS positions of the devices that use it. Those components after using it send the data to the various components in the system. In particular The Taxi Driver component uses the data got by the Position component to track his position sending the information to the Queue Manager.
+The scope of this component is to get the GPS positions of the devices that use it. This component after using it sends the data to the others various components in the system. In particular the TaxiDriver component uses the data got by the Position component to track his position sending the information to the Zone Manager.
 
 \subparagraph{Security}
 This component offers some interfaces to grant security to the whole system.
-For example  it prevent a user to have multiple login session on different devices at the same time.
+For example  it prevents a user to have multiple login sessions on different devices at the same time.

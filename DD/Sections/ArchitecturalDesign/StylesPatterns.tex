@@ -13,9 +13,9 @@
 \subsubsection{State pattern}
 
     This pattern will be used to manage the behaviour of the taxi drivers; indeed, taxi drivers will be provided with a status (that can be 'AVAILABLE', 'NOTAVAILABLE' or 'OFFLINE' as discussed in the RASD\footnote{\label{note1}see the Class Diagram in the 'Specific Requirements' section}) and, according to their state, they will be able to perform only some specific actions.
-    For example, if the status of a taxi driver is 'NOTAVAILABLE', he will not be inserted in any queue and so he will be not allowed to accept any request.
+    For example, if the status of a taxi driver is 'NOTAVAILABLE', he will not be inserted in any queue and so he will not be allowed to accept any request.
     \newline
-    Further, this pattern will be used also for request; each request has a status (that can be 'WAITING', 'RIDING', 'COMPLETED' as discussed in the RASD\footnotemark[\ref{note1}]) and also in this case, according to the status of the request, only some specific kind of actions can be performed. For instance, if the status of a request is 'RIDING', it means that there must be a taxi driver associated to that request, while if a request is 'WAITING' there are no taxi drivers associated to this request.
+    Further, this pattern will be used also for requests; each request has a status (that can be 'WAITING', 'RIDING', 'COMPLETED' as discussed in the RASD\footnotemark[\ref{note1}]) and also in this case, according to the status of the request, only some specific kind of actions can be performed. For instance, if the status of a request is 'RIDING', it means that there must be a taxi driver associated to that request, while if a request is 'WAITING' there are no taxi drivers associated to this request.
     
 \subsubsection{Client-server model}
 
@@ -23,9 +23,9 @@
     
 \subsubsection{REST}
     
-    The mobile applications on the front-end of the system will communicate with the application server thanks to a RESTful interface that is implemented on the application server. So, the mobile device will send requests using the HTTPS protocol and then it will receive from the application server JSON data that it will parse to extract information.
+    The mobile applications on the front-end of the system will communicate with the application server thanks to a RESTful interface that is implemented on the application server. So, the mobile devices will send requests using the HTTPS protocol and then they will receive from the application server JSON data that will be parsed to extract information.
     \newline
-    We have preferred REST to SOAP because a RESTful interface is easier to implement, while SOAP requires a more rigid and complex structure. Further, SOAP returns XML data that are more difficult to parse than JSON messages, which on the contrary are concise and not so verbose. This last consideration was a very important point for our choice: we want to avoid that our mobile application will be too heavy and so we have preferred the REST+JSON structure.
+    We have preferred REST to SOAP because a RESTful interface is easier to implement, while SOAP requires a more rigid and complex structure. Further, SOAP returns XML data that are more difficult to parse than JSON messages, which on the contrary are concise and not so verbose. This last consideration was a very important point for our choice: indeed, we want to avoid that our mobile application is too heavy and so we have preferred the REST+JSON structure.
     
 \subsubsection{Web services}
     
