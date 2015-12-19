@@ -1,0 +1,59 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{url}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[bottom]{footmisc}
+
+% Definition of \subparagraph starting new line after heading
+\titleformat{\subparagraph}
+    {\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
+\titlespacing*{\subparagraph}{\parindent}{3.25ex plus 1ex minus .2ex}{.75ex plus .1ex}
+\setlength{\parindent}{0pt}
+
+
+\setcounter{secnumdepth}{4}
+\renewcommand{\baselinestretch}{1.3} 
+
+\title{
+	\Huge{\textbf{\centerline{myTaxiService}}}
+	\newline
+	\huge{\textbf{C}ode \textbf{I}nspection}
+}
+\author{
+	Monica Magoni 854091
+	\\
+	Alberto Cibari 852689
+}
+\date{\today}
+
+\begin{document}
+
+	\maketitle
+	\newpage
+	\addtocontents{toc}{~\hfill\textbf{Page}\par}
+	\renewcommand*\contentsname{\Huge{Contents}}
+	\tableofcontents
+	
+	\newpage
+	
+    \section{Introduction}
+    	\input{Sections/Introduction/Introduction.tex}
+    	
+    	\subsection{Class Description}
+    	\input{Sections/Introduction/Classes.tex}
+    
+    \section{Issues}
+        \input{Sections/Issues/Issues.tex}
+    
+    \newpage
+    \section*{Appendix}
+        \input{Sections/Appendix/Appendix.tex}
+
+\end{document}
