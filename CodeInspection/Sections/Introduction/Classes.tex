@@ -6,6 +6,9 @@ This class is responsible for providing the Authentication support needed by the
 \subsubsection{\textit{initialize} method}
 This method configures this 'AuthModule' and makes sure all the information needed to continue is present.
 
+The function sets the callback handler of the class.
+It also checks if some options are passed. If there are options, it checks that these are not \textit{null} and sets some option for the class, otherwise throws an exception.
+
 
 \subsubsection{\textit{validateRequest} method}
 This is where the validation happens...

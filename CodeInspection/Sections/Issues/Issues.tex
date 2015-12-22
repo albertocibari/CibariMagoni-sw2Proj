@@ -1,0 +1,96 @@
+ \begin{enumerate}
+        \item Okay - all class
+        \item Not Found - in method initialize
+        \item Okay - all class
+        \item Okay - all class
+        \item Okay - all class
+        \item Okay - all class
+        \item okay in method.
+            In class declarations: \\private static final Logger logger = GuiUtil.getLogger();. 'logger' should be "LOGGER"
+        \item Okay - All document
+        \item Okay - All document
+        \item Okay - All document: bracing style used in all document 'Kernighan and Ritchie' style
+        \item Okay - both methods
+        \item Okay - all document
+        \item   more than 80 chars in a line
+                \begin{itemize}
+                    \item class document: SUPPORTED\_MESSAGE\_TYPES attribute declaration, public void cleanSubject method declaration, public AuthStatus secureResponse method declaration
+                    \item initialize: declaration, line 138 \& 144 (string too long), 147 \& 149 (method concatenation too long), 154 \& 155 string concatenation too long
+                    \item validateRequest: declaration, 191-193 (methods concatenation), 214 (if statement too long), 241 (variable declaration + instantiation), 147 (variable declaration + instantiation with concat methods), 288 (variabe declaration + instantiation), 289 (comment), 291 (if statement), 307,308,310
+                \end{itemize}
+        \item   more than 120 chars in a line
+                \begin{itemize}
+                    \item class document: SUPPORTED\_MESSAGE\_TYPES attribute declaration
+                    \item initialize: declaration, 149, 155
+                    \item validateRequest: declaration, 247
+                \end{itemize}
+        \item Okay - All document
+        \item ???? Cosa vuol dire ????
+        \item Not always. to check
+        \item Comments on code lines are adequate for describing the code. Javadoc comments, and class comments in general are poor written or absent. In general the code is very less commented.
+        \item   \begin{itemize}
+                    \item validateRequest:  Line from 233 to 237 is code commented out. There is the reason why it has been commented out, but not the date of when
+                \end{itemize}
+        \item Okay
+        \item Okay
+        \item 
+        \item The javadoc isn't complete. There is only a brief description of the class attributes and methods. Also in the method javadoc there aren't described the parameters and the return values
+        \item Okay
+        \item The static variables are declared after the instance variables. Also the static ones are declared in a non specific order: private -> public -> private. 
+        Okay for other parts
+        \item Okay
+        \item The class is formed by 5 methods. The method \textit{cleanSubject} is empty and has a comment \textit{//FIXME} inside. The relevant method in the class is \textit{validateRequest} and is a very long method
+        \item Okay
+        \item Okay
+        \item Okay
+        \item Okay
+        \item Okay
+        \item 
+            \begin{itemize}
+                \item initialize: in this method all the variables declarations are done just before the return statement, to create the return value. This behavior is still acceptable for the Java convention
+                \item validateRequest: In this function the great part of the local variables are declared and instantiated just before a compouns statement. The standard Java convention allows for declarations to appear at the beginning of any compound statement, however this is discouraged because it can lead to issues. So this behaviour is not recommended
+            \end{itemize}
+        \item Okay
+        \item The validateRequest function calls some deprecated methods, in particular the methods \textit{getValue} and \textit{putValue} of the class \textit{StandardSession}
+        \item Okay ??
+        \item No Array
+        \item Okay
+        \item NoArray
+        \item Okay. And also object are checked if they are not null with '=='
+        \item Okay
+        \item Okay. (initialize method)
+        \item Okay
+        \item Okay
+        \item 
+        \item 
+        \item 
+        \item 
+        \item 
+        \item 
+        \item 
+        \item 
+            \begin{itemize}
+                \item initialize: AuthException thrown when error in option parameters
+                \item validateRequest: 
+                    \begin{itemize}
+                        \item MalformedURLException thrown when URL parsed is not right. In the catch handler a new exception is thrown: IllegalArgumentException.
+                        \item when the function tries to handle the callback, create a RequestDispatcher or send a response a generic \textit{Exception} can be thrown. In the catch handler for these generic exceptions it is created a AuthException, filled with the info of the generic exception and thrown.
+                    \end{itemize}
+                
+                
+            \end{itemize}
+        \item vedi punto prima.
+        \item no switch
+        \item no switch
+        \item no loops
+        \item no Files
+        \item no Files
+        \item no Files
+        \item no Files
+    \end{enumerate}
+
+\subsubsection{General class problems}
+
+\subsubsection{\textit{initialize} method}
+
+\subsubsection{\textit{validateRequest} method}
