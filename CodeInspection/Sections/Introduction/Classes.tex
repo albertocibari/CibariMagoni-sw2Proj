@@ -4,11 +4,11 @@ This class can be found in the class file under \textit{appserver/admingui/commo
 This class is responsible for providing the Authentication support needed by the admin console to both access the admin console pages as well as invoke REST requests.
 
 \subsubsection{\textit{initialize} method}
-This method configures this 'AuthModule' and makes sure all the information needed to continue is present.
+This method configures this authentication module and makes sure all the information needed to continue is present.
 
 The function sets the callback handler of the class.
 It also checks if some options are passed. If there are options, it checks that these are not \textit{null} and sets some option for the class, otherwise throws an exception.
 
 
 \subsubsection{\textit{validateRequest} method}
-This is where the validation happens...
+This method checks if a request is valid or not. If the request is not mandatory or the security check doesn't need to be done the function returns always a 'SUCCESS' on  the validation, otherwise it makes some checks and returns a 'SUCCESS' or a 'FAILURE'

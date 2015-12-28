@@ -1,0 +1,37 @@
+\subsection{\textit{validateRequest} method}
+
+\begin{itemize}
+        \item[1.] 
+           There are some variables such as '\textit{rd}' and '\textit{ae}' that have a name too short, so that it is not easy to understand their meaning. Although they are formed of two characters instead of one, they can be consider throwaway variables. Their name is formed by the initial characters of their type. In particular '\textit{rd}' stands for '\textit{RequestDispatcher}' and '\textit{ae}' for '\textit{AuthException}'.
+        \item[5.] 
+            On line \textit{443} it is used a function called \textit{basic(String, String)} and its name is not a verb.
+        \item[13.] 
+            In the whole document there are lines of code that are more than 80 characters long. 
+            \newline
+            Here we list the lines that are in the method analyzed in this section:
+                \begin{itemize}
+                    \item Line \textit{171}: the declaration of the method;
+                    \item Lines \textit{191 to 193}: method concatenation;
+                    \item Lines \textit{241, 247, 248, 310}: variable declaration and instantiation;
+                    \item Lines \textit{214, 291}: if statement;
+                    \item Lines \textit{289}: comment;
+                \end{itemize}
+        \item[14.] 
+            We list the lines that are more than 120 characters long that are also present in the previous point of the list: lines \textit{141, 247}
+        \item[15.] 
+            Line \textit{178}: it should be better to put the AND operator (\&\&) in the previous line.
+        \item[17.] 
+            Line \textit{265}: there are four spaces that should be avoided.
+        \item[18.] 
+            Comments on code lines are adequate for describing the code. JavaDoc comments are poor written or absent. In general the code is very less commented.\\
+            For the JavaDoc there are not the tags \textit{'@param', '@throw', '@return'} to describe the parameters of the function
+        \item [19.] 
+            Line from \textit{233} to \textit{237} is code commented out. There is the reason why it has been commented out, but it does not contain the date.
+        \item[23.] 
+            View section \ref{ref-general}, point '23' of the list.
+        \item[27.] 
+            This is a very long method, more than 150 lines of code, and it should be divided into sub methods.
+        \item[33.] 
+            In this function the major part of the local variables are declared and instantiated just before a compound statement.
+        \item[50.] The code that can cause exceptions is handled by the \textit{try-catch} statement. It is correct but can be improved. In fact the functions can throw more than one type of exception, but these exceptions are handled only by a generic catch statement (\textit{catch (Exception ex)}). It would be better if there were multiple catch statements, one for each exception type. 
+    \end{itemize}

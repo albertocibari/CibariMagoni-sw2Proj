@@ -1,0 +1,28 @@
+\subsection{General class problems}
+\label{ref-general}
+
+\begin{itemize}
+    \item[7.] 
+        In the class, when the constant attributes are declared, there is the constant 'logger' (\textit{private static final Logger logger = GuiUtil.getLogger();}) that should be declared using all uppercase.
+    \item[13.] 
+        In the whole document there are lines of code that are more than 80 characters long. 
+        \newline
+        Here we list the lines that are not in the methods we have to analyse:
+            \begin{itemize}
+                \item Line \textit{100} : declaration of \textit{SUPPORTED\_MESSAGE\_TYPES} attribute
+                \item Line \textit{326} : declaration of \textit{secureResponse} method
+                \item Line \textit{334} : declaration of \textit{cleanSubject} method
+            \end{itemize}
+    \item[14.] 
+        We list the lines that are more than 120 characters long that are present in the previous point of the list: line \textit{100}
+    \item[18.] 
+        Comments on code lines are adequate for describing the code. Javadoc comments, and class comments in general are poor written or absent. In general the code is very less commented.
+    \item[19.] 
+        Line \textit{90}: variable declaration; this variable declaration is commented out but there is neither the reason why it has been commented out nor the date.
+    \item[23.] 
+        The JavaDoc is not complete. There is only a brief description of the class attributes and methods. Also, in the methods, the parameters and the return values are not described by the JavaDoc.
+    \item[25.] 
+        The static variables are declared after the instance variables. Also the static ones are declared in a non specific order. In this case \textit{private} - \textit{public} - \textit{private}. 
+    \item[27.] 
+        The class is formed of five methods. The method \textit{cleanSubject} is empty and has a comment \textit{//FIXME} inside. The relevant method in the class is \textit{validateRequest} and is a very long method.
+\end{itemize}
