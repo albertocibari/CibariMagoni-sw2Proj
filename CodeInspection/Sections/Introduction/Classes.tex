@@ -10,4 +10,4 @@ The function sets the callback handler of the class.
 It also checks if some options are passed. If there are options, it checks that these are not \textit{null} and sets some options for the class, otherwise throws an exception.
 
 \subsubsection{\textit{validateRequest} method}
-This method checks if a request is valid or not. If the request is not mandatory or the security check doesn't need to be done the function returns always a 'SUCCESS' on  the validation, otherwise it makes some checks and returns a 'SUCCESS' or a 'FAILURE'.
+This method checks if a request is valid or not. If the request is not mandatory or the security check is not needed, the function returns always a 'SUCCESS' on  the validation, otherwise it makes some checks, for example it checks if the Subject is marked as SAVED or if the username or password are null, and returns a 'SUCCESS' or a 'FAILURE'. The last part of the method is used to make a REST request: then, if the response is successful, the RESt token, the Subject and the username are saved.
