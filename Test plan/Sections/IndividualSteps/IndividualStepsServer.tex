@@ -1,0 +1,254 @@
+
+
+\begin{table}[H]
+    \customlabel{T-login}{T1}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Sequence
+        & 
+        Integration test: \ref{T-login}
+        \\ \hline
+        Components 
+        & 
+        DBManager - LoginManager
+        \\ \hline
+        Stubs/Drivers 
+        & 
+        DBManagerDriver
+        \\ \hline
+        Input 
+        & 
+        Action and the data regarding the login process: login, logout.
+        \\ \hline
+        Output 
+        & 
+        Checks that given an input action and data, the information returned are right, in this case: in a success case the information of the user that tries to login, otherwise an error.
+        \\ \hline
+        Test requirements 
+        & 
+        
+        \\ \hline
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \customlabel{T-registration}{T2}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Sequence
+        & 
+        Integration test: \ref{T-registration}
+        \\ \hline
+        Components 
+        & 
+        DBManager - RegistrationManager
+        \\ \hline
+        Stubs/Drivers 
+        & 
+        DBManagerDriver
+        \\ \hline
+        Input 
+        & 
+        Action and the data regarding the registration process: name, surname, e-mail, password, phone number and taxi licence ID.
+        \\ \hline
+        Output 
+        & 
+        Checks that given an input action and data, the information returned are right. In this case it has to check if the registration data  are saved correctly on the DB.
+          \\ \hline
+        Test requirements 
+        & 
+        
+        \\ \hline
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \customlabel{T-call}{T3}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Sequence
+        & 
+        Integration test: \ref{T-call}
+        \\ \hline
+        Components 
+        & 
+        DBManager - Call Manager
+        \\ \hline
+        Stubs/Drivers 
+        & 
+        DBManagerDriver
+        \\ \hline
+        Input 
+        & 
+        Action and the data regarding the management of a call: request creation, request acceptance, request termination.
+        \\ \hline
+        Output 
+        & 
+        Checks that, given an input action and data, the information returned are right otherwise throw an error.
+        \\ \hline
+        Test requirements 
+        & 
+        
+        \\ \hline
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \customlabel{T-security1}{T5}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Sequence
+        & 
+        Integration test: \ref{T-security1}
+        \\ \hline
+        Components 
+        & 
+        Security - Login Manager
+        \\ \hline
+        Stubs/Drivers 
+        & 
+        SecurityDriver
+        \\ \hline
+        Input 
+        & 
+        Action and the data regarding the login of a user.
+        \\ \hline
+        Output 
+        & 
+        Checks that the login data are valid and if exists already a session for the user.
+        \\ \hline
+        Test requirements 
+        & 
+        Integration test \ref{T-login}
+        \\ \hline
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \customlabel{T-security2}{T6}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Sequence
+        & 
+        Integration test: \ref{T-security2}
+        \\ \hline
+        Components 
+        & 
+        Security - Registration Manager
+        \\ \hline
+        Stubs/Drivers 
+        & 
+        SecurityDriver
+        \\ \hline
+        Input 
+        & 
+        Action and the data regarding the registration process. 
+        \\ \hline
+        Output 
+        & 
+        Checks that the registration data are unique (e-mail and taxi licence ID) and the security of the information.
+        \\ \hline
+        Test requirements 
+        & 
+        Integration test \ref{T-registration}
+        \\ \hline
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \customlabel{T-queue}{T7}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Sequence
+        & 
+        Integration test: \ref{T-queue}
+        \\ \hline
+        Components 
+        & 
+        DBManager - QueueManager
+        \\ \hline
+        Stubs/Drivers 
+        & 
+        DBManagerDriver
+        \\ \hline
+        Input 
+        & 
+       
+        \\ \hline
+        Output 
+        & 
+        
+        \\ \hline
+        Test requirements 
+        & 
+        
+        \\ \hline
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \customlabel{T-zone}{T8}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Sequence
+        & 
+        Integration test: \ref{T-zone}
+        \\ \hline
+        Components 
+        & 
+        DBManager - ZoneManager
+        \\ \hline
+        Stubs/Drivers 
+        & 
+        DBManagerDriver
+        \\ \hline
+        Input 
+        & 
+       
+        \\ \hline
+        Output 
+        & 
+        
+        \\ \hline
+        Test requirements 
+        & 
+        
+        \\ \hline
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \customlabel{T-queuezone}{T9}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Sequence
+        & 
+        Integration test: \ref{T-queuezone}
+        \\ \hline
+        Components 
+        & 
+        QueueManager - ZoneManager
+        \\ \hline
+        Stubs/Drivers 
+        & 
+        QueueManagerDriver
+        \\ \hline
+        Input 
+        & 
+       
+        \\ \hline
+        Output 
+        & 
+        
+        \\ \hline
+        Test requirements 
+        & 
+        Integration test \ref{T-queue}
+        \\ \hline
+    \end{tabularx}
+\end{table}
+
+
+
+
+
