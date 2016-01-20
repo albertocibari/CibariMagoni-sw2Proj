@@ -1,18 +1,124 @@
 \begin{table}[H]
-    \label{T1}
+    \customlabel{D-DB}{DBManagerDriver}
     \begin{tabularx}{\textwidth}{l|X}
         \hline
         Name
         & 
-         
+        \ref{D-DB}
         \\ \hline
         Components of reference 
         & 
-         
+        DBManager
         \\ \hline
         Purpose
         & 
-         
+        This driver generates various kind of requests (login requests, registration requests, call requests) and send them to the DBManager. Once received the response, it checks if it is correct.
+        \\ \hline
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \customlabel{D-Security}{SecurityStub}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Name
+        & 
+        \ref{D-Security}
+        \\ \hline
+        Components of reference 
+        & 
+        Security
+        \\ \hline
+        Purpose
+        & 
+        This stub checks that the information that come from the LoginManager and the RegistrationManager is correct before registering or logging in. Also it checks that given the username and password of a user, it has only one session open in the system.
+        \\ \hline
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \customlabel{D-queueM}{QueueManagerDriver}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Name
+        & 
+        \ref{D-queueM}
+        \\ \hline
+        Components of reference 
+        & 
+        QueueManager
+        \\ \hline
+        Purpose
+        & 
+        This component simulates various actions to send to the QueueManager and checks the response is correct.
+        \begin{itemize}
+            \item Checks that a taxi driver is correctly added to a queue
+            \item Checks that the position of a taxi driver is changed when it changes his status
+            \item Checks that the right taxi driver is chosen when a call request is created
+        \end{itemize}
+        \\ \hline
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \customlabel{D-zoneM}{ZoneManagerDriver}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Name
+        & 
+        \ref{D-zoneM}
+        \\ \hline
+        Components of reference 
+        & 
+        ZoneManager
+        \\ \hline
+        Purpose
+        & 
+        This component simulates various action to send to the ZoneManager and checks the response from the ZoneManager is correct.
+        \begin{itemize}
+            \item  It checks that the the creation of a zone is correct.
+            \item Given a GPS position checks that the queue searched by the ZoneManager is correct.
+        \end{itemize}
+        \\ \hline
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \customlabel{D-position}{PositionStub}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Name
+        & 
+        \ref{D-position}
+        \\ \hline
+        Components of reference 
+        & 
+        Position
+        \\ \hline
+        Purpose
+        & 
+        This stub simulates a GPS device creating GPS coordinates whenever the TaxiDriver and Passenger components request them, and send them to these component in the right formatted way.
+        \\ \hline
+    \end{tabularx}
+\end{table}
+
+
+\begin{table}[H]
+    \customlabel{D-managerview}{ManagerViewDriver}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Name
+        & 
+        \ref{D-managerview}
+        \\ \hline
+        Components of reference 
+        & 
+        WebManagerView, AppManagerView
+        \\ \hline
+        Purpose
+        & 
+        This component substitute the view part in a MVC pattern. Its role is to check if the data to print on screen, coming from the TaxiDriver and Passenger components, are formatted in the right way, otherwise returns an error to these components.
+        Also it creates some actions to send to the controller components and checks if the correct methods are called.
         \\ \hline
     \end{tabularx}
 \end{table}

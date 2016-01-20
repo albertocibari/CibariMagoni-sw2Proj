@@ -1,12 +1,9 @@
 In this section we define the criteria that must be met before starting the integration tests.
-Referring to the documents:
+\newline
+First of all, the RASD, the DD and the Integration Test Plan document must be delivered, complete and updated.
+Moreover, referring to the code, these criteria must be satisfied:
 \begin{itemize}
-    \item The RASD and the DD must be delivered, complete and updated. 
-\end{itemize}
-
-Referring to the code:
-\begin{itemize}
-    \item Unit tests must be done to classes and functions and cover at least an average of the 90\% of the lines of code. Indeed, unit tests must be done in order to avoid mistakes in the phase of integration.
+    \item Unit tests must be done to classes and functions and cover at least an average of the 90\% of the lines of code. This criteria must be met in order to avoid mistakes in the phase of integration: indeed, if no unit tests have been done before the start of the integration, it will probably happen that errors will be located in the single classes or functions. The problem is that, during the integration, it will be very hard to find those mistakes. For instance, simple array-out-of-bound or division by 0 exceptions in a single function might cause the crash of the entire integration test for trivial reasons.
     \item The JavaDoc must be complete and updated in order to simplify the integration tests. In particular, public classes and public methods should have a detailed JavaDoc documentation. 
-    \item The code inspection must have been done; in this way, some errors or possible errors can be avoided and testers will save time while doing the integration tests.
+    \item The code inspection has to be performed; in this way, some errors or possible errors can be avoided and testers will save time while doing the integration tests.
 \end{itemize}

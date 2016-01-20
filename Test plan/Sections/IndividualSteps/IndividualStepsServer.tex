@@ -1,3 +1,4 @@
+\subsection{Integration Steps Server}
 
 
 \begin{table}[H]
@@ -14,15 +15,15 @@
         \\ \hline
         Stubs/Drivers 
         & 
-        DBManagerDriver
+        \ref{D-DB}
         \\ \hline
         Input 
         & 
-        Action and the data regarding the login process: login, logout.
+        Actions and data that concern the login process: login, logout.
         \\ \hline
         Output 
         & 
-        Checks that given an input action and data, the information returned are right, in this case: in a success case the information of the user that tries to login, otherwise an error.
+        Checks that given an input action and the data, the information returned are right; in this case: if the operation was successful, it must return the information of the user that tries to login, otherwise it has to return an error.
         \\ \hline
         Test requirements 
         & 
@@ -45,15 +46,15 @@
         \\ \hline
         Stubs/Drivers 
         & 
-        DBManagerDriver
+        \ref{D-DB}
         \\ \hline
         Input 
         & 
-        Action and the data regarding the registration process: name, surname, e-mail, password, phone number and taxi licence ID.
+        Actions and data that concern the registration process: name, surname, e-mail, password, phone number and taxi licence ID.
         \\ \hline
         Output 
         & 
-        Checks that given an input action and data, the information returned are right. In this case it has to check if the registration data  are saved correctly on the DB.
+        Checks that given an input action and the data, the information returned are right; in this case it has to check if the registration data  are saved correctly on the DB.
           \\ \hline
         Test requirements 
         & 
@@ -76,15 +77,15 @@
         \\ \hline
         Stubs/Drivers 
         & 
-        DBManagerDriver
+        \ref{D-DB}
         \\ \hline
         Input 
         & 
-        Action and the data regarding the management of a call: request creation, request acceptance, request termination.
+        Actions and data that concern the management of a call: request creation, request acceptance, request termination.
         \\ \hline
         Output 
         & 
-        Checks that, given an input action and data, the information returned are right otherwise throw an error.
+        Checks that, given an input action and the data, the information returned are right otherwise throws an error.
         \\ \hline
         Test requirements 
         & 
@@ -94,7 +95,7 @@
 \end{table}
 
 \begin{table}[H]
-    \customlabel{T-security1}{T5}
+    \customlabel{T-security1}{T4}
     \begin{tabularx}{\textwidth}{l|X}
         \hline
         Sequence
@@ -107,15 +108,15 @@
         \\ \hline
         Stubs/Drivers 
         & 
-        SecurityDriver
+        \ref{D-Security}
         \\ \hline
         Input 
         & 
-        Action and the data regarding the login of a user.
+        Actions and data that concern the login of a user.
         \\ \hline
         Output 
         & 
-        Checks that the login data are valid and if exists already a session for the user.
+        Checks that the login data are valid and if already exists a session for the user.
         \\ \hline
         Test requirements 
         & 
@@ -125,7 +126,7 @@
 \end{table}
 
 \begin{table}[H]
-    \customlabel{T-security2}{T6}
+    \customlabel{T-security2}{T5}
     \begin{tabularx}{\textwidth}{l|X}
         \hline
         Sequence
@@ -138,11 +139,11 @@
         \\ \hline
         Stubs/Drivers 
         & 
-        SecurityDriver
+        \ref{D-Security}
         \\ \hline
         Input 
         & 
-        Action and the data regarding the registration process. 
+        Actions and data that concern the registration process. 
         \\ \hline
         Output 
         & 
@@ -156,7 +157,7 @@
 \end{table}
 
 \begin{table}[H]
-    \customlabel{T-queue}{T7}
+    \customlabel{T-queue}{T6}
     \begin{tabularx}{\textwidth}{l|X}
         \hline
         Sequence
@@ -169,15 +170,15 @@
         \\ \hline
         Stubs/Drivers 
         & 
-        DBManagerDriver
+        \ref{D-DB}
         \\ \hline
         Input 
         & 
-       
+        Actions and data that concern the zone management (positions, taxi lists). 
         \\ \hline
         Output 
         & 
-        
+        DBManager should provide the right information required without errors in the right format.
         \\ \hline
         Test requirements 
         & 
@@ -187,7 +188,7 @@
 \end{table}
 
 \begin{table}[H]
-    \customlabel{T-zone}{T8}
+    \customlabel{T-zone}{T7}
     \begin{tabularx}{\textwidth}{l|X}
         \hline
         Sequence
@@ -200,15 +201,15 @@
         \\ \hline
         Stubs/Drivers 
         & 
-        DBManagerDriver
+        \ref{D-DB}
         \\ \hline
         Input 
         & 
-       
+        Actions and data that concern the queue management (taxi drivers id, taxi positions).
         \\ \hline
         Output 
         & 
-        
+        DBManager should provide the right information required without errors in the right format.
         \\ \hline
         Test requirements 
         & 
@@ -218,7 +219,7 @@
 \end{table}
 
 \begin{table}[H]
-    \customlabel{T-queuezone}{T9}
+    \customlabel{T-queuezone}{T8}
     \begin{tabularx}{\textwidth}{l|X}
         \hline
         Sequence
@@ -231,24 +232,81 @@
         \\ \hline
         Stubs/Drivers 
         & 
-        QueueManagerDriver
+        \ref{D-queueM}
         \\ \hline
         Input 
         & 
-       
+        Actions and data that concern the taxi driver (GPS position, queue id)
         \\ \hline
         Output 
         & 
-        
+        Checks that the status of a taxi driver is changed correctly.
         \\ \hline
         Test requirements 
         & 
-        Integration test \ref{T-queue}
+        Integration test \ref{T-queue}, \ref{T-zone}
         \\ \hline
     \end{tabularx}
 \end{table}
 
+\begin{table}[H]
+    \customlabel{T-callZone}{T9}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Sequence
+        & 
+        Integration test: \ref{T-callZone}
+        \\ \hline
+        Components 
+        & 
+        CallManager - ZoneManager
+        \\ \hline
+        Stubs/Drivers 
+        & 
+        \ref{D-zoneM}
+        \\ \hline
+        Input 
+        & 
+        The CallManager sends the GPS information to the ZoneManager to look for a specific queue.
+        \\ \hline
+        Output 
+        & 
+        The queue identifier in which search for the first free taxi driver.
+        \\ \hline
+        Test requirements 
+        & 
+        Integration test \ref{T-call}, \ref{T-queuezone}
+        \\ \hline
+    \end{tabularx}
+\end{table}
 
-
-
-
+\begin{table}[H]
+    \customlabel{T-callqueue}{T10}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Sequence
+        & 
+        Integration test: \ref{T-callqueue}
+        \\ \hline
+        Components 
+        & 
+        CallManager - QueueManager
+        \\ \hline
+        Stubs/Drivers 
+        & 
+        \ref{D-queueM}
+        \\ \hline
+        Input 
+        & 
+        The CallManager sends the taxi driver identifier and an action to do to the QueueManager.
+        \\ \hline
+        Output 
+        & 
+        The result of the operation otherwise an error.
+        \\ \hline
+        Test requirements 
+        & 
+        Integration test \ref{T-call}, \ref{T-queue}
+        \\ \hline
+    \end{tabularx}
+\end{table}

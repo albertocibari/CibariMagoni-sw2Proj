@@ -1,0 +1,67 @@
+\subsection{Integration Steps Subsystems}
+
+\begin{table}[H]
+    \customlabel{T-dbserver}{T1}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Sequence
+        & 
+        Integration test: \ref{T-dbserver}
+        \\ \hline
+        Subsystems 
+        & 
+        Database - Server
+        \\ \hline
+        Input 
+        & 
+        A list SQL queries.
+        \\ \hline
+        Output 
+        & 
+        The right data for every query as specified in the query.
+        \\ \hline
+        Test requirements 
+        & 
+        
+        \\ \hline
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \customlabel{T-serverclient}{T2}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Sequence
+        & 
+        Integration test: \ref{T-serverclient}
+        \\ \hline
+        Subsystems 
+        & 
+        Server - Client
+        \\ \hline
+        Input 
+        & 
+        A set of actions and data regarding:
+        \begin{itemize}
+            \item Registration of a new user.
+            \item Login of a user.
+            \item Creation of a request.
+            \item Locating a user by GPS position.
+        \end{itemize}
+        \\ \hline
+        Output 
+        & 
+        The expected outputs for each action listed in the 'Input' fields are
+        \begin{itemize}
+            \item The registration result and a mail in case of success.
+            \item The login result and a session id in case of success.
+            \item The result for the creation of the request otherwise an error.
+            \item Acknowledgment message
+        \end{itemize}
+        \\ \hline
+        Test requirements 
+        & 
+        \ref{T-dbserver}
+        \\ \hline
+    \end{tabularx}
+\end{table}

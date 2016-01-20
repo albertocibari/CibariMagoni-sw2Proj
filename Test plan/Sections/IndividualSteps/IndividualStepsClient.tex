@@ -1,0 +1,187 @@
+\subsection{Integration Steps Client}
+
+\begin{table}[H]
+    \customlabel{T-taxiDriver}{T1}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Sequence
+        & 
+        Integration test: \ref{T-taxiDriver}
+        \\ \hline
+        Components 
+        & 
+        Position - TaxiDriver
+        \\ \hline
+        Stubs/Drivers 
+        & 
+        \ref{D-position}
+        \\ \hline
+        Input 
+        & 
+        The action of getting the GPS position of the taxi driver.
+        \\ \hline
+        Output 
+        & 
+        The GPS position parsed and ready to be sent to the server.
+        \\ \hline
+        Test requirements 
+        & 
+        
+        \\ \hline
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \customlabel{T-passenger}{T2}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Sequence
+        & 
+        Integration test: \ref{T-passenger}
+        \\ \hline
+        Components 
+        & 
+        Position - Passenger
+        \\ \hline
+        Stubs/Drivers 
+        & 
+        \ref{D-position}
+        \\ \hline
+        Input 
+        & 
+        The action of getting the GPS position of the passenger.
+        \\ \hline
+        Output 
+        & 
+        The GPS position parsed and ready to be sent to the server.
+        \\ \hline
+        Test requirements 
+        & 
+        
+        \\ \hline
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \customlabel{T-apptaxi}{T3}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Sequence
+        & 
+        Integration test: \ref{T-apptaxi}
+        \\ \hline
+        Components 
+        & 
+        TaxiDriver - AppManagerView
+        \\ \hline
+        Stubs/Drivers 
+        & 
+        \ref{D-managerview}
+        \\ \hline
+        Input 
+        & 
+        Commands to send to the TaxiDriver controller.
+        \\ \hline
+        Output 
+        & 
+        The correct controller method is called and the right page fragment is loaded.
+        \\ \hline
+        Test requirements 
+        & 
+        \ref{T-taxiDriver}
+        \\ \hline
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \customlabel{T-webtaxi}{T4}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Sequence
+        & 
+        Integration test: \ref{T-webtaxi}
+        \\ \hline
+        Components 
+        & 
+        TaxiDriver -  WebManagerView
+        \\ \hline
+        Stubs/Drivers 
+        & 
+        \ref{D-managerview}
+        \\ \hline
+        Input 
+        & 
+        Commands to send to the TaxiDriver controller.
+        \\ \hline
+        Output 
+        & 
+        The correct controller method is called and the right web page is loaded.
+        \\ \hline
+        Test requirements 
+        & 
+        \ref{T-taxiDriver}
+        \\ \hline
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \customlabel{T-appgen}{T5}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Sequence
+        & 
+        Integration test: \ref{T-appgen}
+        \\ \hline
+        Components 
+        & 
+        Passenger - AppManagerView
+        \\ \hline
+        Stubs/Drivers 
+        & 
+        \ref{D-managerview}
+        \\ \hline
+        Input 
+        & 
+        Commands to send to the Passenger controller.
+        \\ \hline
+        Output 
+        & 
+       The correct controller method is called and the right page fragment is loaded.
+        \\ \hline
+        Test requirements 
+        & 
+        \ref{T-passenger}
+        \\ \hline
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \customlabel{T-webgen}{T6}
+    \begin{tabularx}{\textwidth}{l|X}
+        \hline
+        Sequence
+        & 
+        Integration test: \ref{T-webgen}
+        \\ \hline
+        Components 
+        & 
+        Passenger - WebManagerView
+        \\ \hline
+        Stubs/Drivers 
+        & 
+        \ref{D-managerview}
+        \\ \hline
+        Input 
+        & 
+        Commands to send to the Passenger controller.
+        \\ \hline
+        Output 
+        & 
+        The correct controller method is called and the right web page is loaded.
+        \\ \hline
+        Test requirements 
+        & 
+        \ref{T-passenger}
+        \\ \hline
+    \end{tabularx}
+\end{table}
