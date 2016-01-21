@@ -1,10 +1,21 @@
 \subsubsection{Software Integration Sequence}
+<<<<<<< HEAD
+\label{sectionIntegration}
 In order to show the sequence of the integration, we distinguish into the two subsystem server and client.
+\newline
+In the images shown in this section, an arrow that goes from a general integration test T1 to another integration test T2 means that, before doing the integration test T2, the integration test T1 must be performed.
+=======
+In order to show the sequence of the integration, we distinguish into the two subsystem server and client.
+>>>>>>> origin/master
 
 \newpage
 \paragraph{Server}\mbox{}
 \newline 
+<<<<<<< HEAD
+The next figure shows the sequence of the integration of the components of the server.
+=======
 The next figure will show the sequence of the integration of the components of the server.
+>>>>>>> origin/master
 \newline
 
 \begin{figure}[H]
@@ -17,7 +28,11 @@ The next figure will show the sequence of the integration of the components of t
 
 \paragraph{Client}\mbox{}
 \newline
+<<<<<<< HEAD
+The next figure shows the sequence of the integration of the components of the client.
+=======
 The next figure will show the sequence of the integration of the components of the client.
+>>>>>>> origin/master
 \newline
 In particular, we want to underline that we decided to give priority to tests that concern taxi drivers; indeed, those tests will be performed before the ones regarding passengers. This choice is due to the fact that in our project the central role is played by taxi rather than passengers. 
 \newline
@@ -31,9 +46,15 @@ In particular, we want to underline that we decided to give priority to tests th
 \newpage
 
 \subsubsection{Subsystem Integration Sequence}
+<<<<<<< HEAD
+The next figure shows the sequence of the integration of the main subsystems.
+\newline
+The integration of subsystems will start from the database and the server; then, we will integrate the server and the client. This choice seems reasonable since the database and the server are the most important parts of the whole system: the server manages the business logic, while the database manages the data. So, we decided to give highest priority to this two subsystems rather than the client.
+=======
 The next figure will show the sequence of the integration of the main subsystems.
 \newline
 The integration of subsystems will start from the database and the server; then, we will integrate the server and the client. This choice seems reasonable since the database and the server are the most important parts of the hole system: the server manages the business logic, while the database manages the data. So, we decided to give highest priority to this two subsystems rather than the client.
+>>>>>>> origin/master
 \newline
 \begin{figure}[H]
     \centering
