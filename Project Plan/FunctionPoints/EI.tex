@@ -1,0 +1,35 @@
+This function type refers to elementary operations that elaborate data coming from the external environment.
+\newline
+In our system, the External Input operations that concern the general user (either taxi driver or passenger) are:
+\begin{itemize}
+    \item Sign up into the system. 
+	\item Login/Logout.
+	\item Change password/information of the account. 
+	\item Delete account. 
+\end{itemize}
+The Login and Logout operations are simple operations, so we can use a simple weight for them: 2 x 3 = 6 FPs. The change account information and the Sign up operation are more difficult, and we gave them a medium complexity: 2 x 4 = 8 FPs.
+The Delete account is a complex operation : 6 FPs.
+\newline
+
+There are others External Input operations that refer only to taxi drivers:
+\begin{itemize}
+	\item Notify the system of their availability. 
+	\item Accept requests. 
+	\item Decline requests. 
+	\item Activate/Deactivate taxi service. 
+	\item Track their position via GPS. 
+\end{itemize}
+The tracking operation and the management of the taxi service are simple operations, so they have a simple complexity: 2 x 3 = 6 FPs.
+The other 3 operations have a medium complexity : 3 x 4 = 12 FPs.
+\newline
+
+There are others External Input operations that refer only to passengers:
+\begin{itemize}
+	\item Request a taxi. 
+	\item Reserve a taxi. 
+	\item Delete requests. 
+	\item Delete reservations. 
+\end{itemize}
+The Request and Reservation have a medium complexity: 2 x 4 = 8 FPs. Instead the delete operation are complex operations: 2 x 6 = 12 FPs.
+\newline
+All these operations have been identified referring to the RASD.\footnote{Section "Overall Description"}

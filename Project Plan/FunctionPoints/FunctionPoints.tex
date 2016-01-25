@@ -1,0 +1,37 @@
+In this section we perform the Function Points Analysis; this analysis has the aim to give an estimation of the project size, according to its functionalities. Indeed, we can estimate the LOC (Lines of Code) starting from the Function Points count.
+This approach identifies different function types:
+\begin{itemize}
+    \item Internal Logic File;
+    \item External Interface File;
+    \item External Input;
+    \item External Output;
+    \item External Inquiry.
+\end{itemize}
+The meaning of each function type will be clarified later on.
+\newline
+Before computing the effort, we have to count the number of operations/data that correspond to a specific Function Points type; a weight is associated to each of the Function Points type, depending on its complexity; the total effort is computed by multiplying each count by the weight and summing all values.
+\newline
+
+The weights we will use to calculate the effort are listed in the following table:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|1|1|1|1|}
+        \hline
+        Function Types & \multicolumn{3}{c|}{ Complexity } \\ \cline{2-4} 
+    
+        & Simple & Medium & Complex \\ \cline{1-3} 
+        \hline
+        Internal Logic Files & 7 & 10 &  15\\
+        \hline
+        External Interface Files & 5 & 7 & 10 \\
+        \hline
+        External Input & 3 & 4 & 6 \\
+        \hline
+        External Output & 4 & 4 & 7 \\
+        \hline
+        External Inquiry & 3 & 4 & 6 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+
