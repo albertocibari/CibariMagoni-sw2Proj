@@ -1,19 +1,39 @@
-In order to estimate the effort of the project, we refer to the COCOMO II model; the effort is expressed as Person-Months (PM):
+\label{cocomo}
 
-%FORMULA
+In order to estimate the effort of the project, we refer to the COCOMO II model; the effort is expressed as Person-Months (PM) and it is:
+
 \begin{equation}
-    \textrm{Effort} = A * EAF * (KSLOC)^{E} = 2.49 *  * (6.519)^{a}  = 
+    \textrm{Effort} = A * EAF * (KSLOC)^{E} = \ref{A} * \ref{EAF} * (\ref{KSLOC})^{\ref{E}}  = \manuallabel{PM}{28.631}\ref{PM} PM
 \end{equation}
-
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|1|1|}
+        \hline
+        \textbf{Parameter} & \textbf{Value} & \textbf{Section}\\
+        \hline
+        A & \manuallabel{A}{2.94}\ref{A} & defined by COCOMO\\
+        \hline
+        EAF & \ref{EAF} & \ref{cost-driver}\\
+        \hline
+        KSLOC & \manuallabel{KSLOC}{6.519}\ref{KSLOC} & \ref{cocomo}\\
+        \hline
+        E & \ref{E} & \ref{scale-driver}\\
+        \hline
+    \end{tabular}
+\end{table}
+How we found the values of the equation is described in the upcoming sections \ref{scale-driver} and \ref{cost-driver}.
 
 The value of KSLOC can be evaluated from the FP count:
 \begin{equation}
     SLOC = FPs * 53 = 123 * 53 = 6519
 \end{equation}
-The value 53 refers to the use of Java as the programming language.
-
+The value 53 refers to the use of Java as the implementation language of our software.
+\newline
 Since we have not implemented the software, we are not able to make any comment about the estimation of the SLOC. 
-\newline 
-During the estimation process, in order to give a weight to Scale Drivers and Cost Drivers, we have referred to the tables presented in the document: 
+\newline
+During the estimation process, in order to give a weight to Scale Drivers and Cost Drivers, we have referred to the tables presented in this document: 
 \newline
 \href{http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf}{\textcolor{blue}{\underline{COCOMO II - Model Definition Manual (link)}}}
+
+%Duration = 10.4 months
+%N = 28.668 /10.4 = 2.75 persone

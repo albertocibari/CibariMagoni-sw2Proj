@@ -1,0 +1,104 @@
+\label{cost-driver}
+
+In order to estimate the effort, we need to evaluate the EAF (Effort Adjustment Factor), that is the product of Cost Drivers. \newline
+So, we now evaluate each Cost Driver:
+\begin{itemize}
+    \item Required Software Reliability (RELY): this factor measures the extent to which the software must perform its intended function over a period of time.
+        \newline 
+        In our project, we can consider this factor moderate and so easily recoverable; this is due to the fact that a system failure would not put on risk human life, but it can create problems or difficulties to people.
+    \item Data Base Size (DATA): this cost driver attempts to capture the effect large test data requirements have on product development.
+        \newline
+        This parameter has a value of high, because the test database must have enough data to cover all possible test cases and all possible execution faults. So the ratio between the size of the test DB and the SLOC is between 100 and 1000. 
+    \item Product Complexity (CPLX): the complexity is divided into five areas: control operations, computational operations, device-dependent operations, data management operations, and user interface management operations.
+        \newline 
+        The control operations, computational operations, device-dependent operations and the user interface management operations have a nominal value, while the data management operations has a high value. So the average weigh of the areas is nominal.
+    \item Developed for Reusability (RUSE): This cost driver accounts for the additional effort needed to construct components intended for reuse on current or future projects.
+        \newline
+        We prepared the project to maintain a more generic design as possible so the components can be used across the project. So the value given to this field is nominal. 
+    \item Documentation Match to Life-Cycle Needs (DOCU): this cost driver is evaluated in terms of the suitability of the project’s documentation to its life-cycle needs.
+        \newline
+        The documentation presented is right-sized to the life-cycle needs of the project. So this parameter is set to nominal. 
+    \item Execution Time Constraint (TIME): this is a measure of the execution time constraint imposed upon a software system. The rating is expressed in terms of the percentage of available execution time expected to be used by the system consuming the execution time resource.
+        \newline
+        As said in the RASD, the system must have a minimum availability of 97\%, so the value of this parameter is very high. 
+    \item Main Storage Constraint (STOR): this rating represents the degree of main storage constraint imposed on a software system or subsystem.
+        \newline
+        This parameter in our application is not relevant. We do not expect the data to increment significantly, so we set it to a nominal value.
+    \item Platform Volatility (PVOL): “Platform” is used here to mean the complex of hardware and software (OS, DBMS, etc.) the software product calls on to perform its tasks.
+        \newline
+        Changes to platforms will happen rarely (between 12 months and 1 month) so this value is set to low.
+    \item Analyst Capability (ACAP): the major attributes that should be considered in this rating are analysis and design ability, efficiency and thoroughness, and the ability to communicate and cooperate.
+        \newline 
+        We can consider this factor high due to the fact that we spent a lot of time in analyzing the requirements and designing our system-to-be; indeed, we gave high priority to those parts of the project. 
+    \item Programmer Capability (PCAP): this factor refers to the programmers capability as teams rather than individuals.
+        \newline 
+        This factor in our system can be evaluated as high since our team had already worked together on another project and so we know each other's ability to program. 
+    \item Personnel Continuity (PCON): this parameter measures the project’s personnel turnover. 
+        \newline 
+        We give a high value to this factor since we have worked with continuity (almost everyday) on this project for the last six months, without personnel turnover. 
+    \item Applications Experience (APEX): this rating is defined in terms of the project team’s equivalent level of experience with this type of application.
+        \newline 
+        Since this is our first project of this type, this parameter is set to low. 
+    \item Platform Experience (PLEX): this factor measures the knowledge of more powerful platforms, including more graphic user interface, database, networking, and distributed middleware capabilities.
+        \newline 
+        Since we have only a bit of knowledge about those platforms, we can consider this parameter low.
+    \item Language and Tool Experience (LTEX): This is a measure of the level of programming language and software tool experience of the project team developing the software system or subsystem.
+        \newline 
+        Our level of experience concerning the language is high since we did a quite complex project in Java last year; on the contrary, our knowledge regarding the tools is low. So, we can set the value to nominal. 
+    \item Use of Software Tools (TOOL): the tool rating ranges from simple edit and code, very low, to integrated life-cycle management tools, very high.
+        \newline
+        Our level of experience in this field is restricted, as said in the LTEX parameter, so we set this value to low.
+    \item Multisite Development (SITE): this cost driver rating involves the assessment and judgement-based averaging of two factors: site collocation and communication support.
+        \newline 
+        Our approach concerning the development phase would be multi-city and interactive multimedia; so we give a high value to this parameter.
+    \item Required Development Schedule (SCED): this rating measures the schedule constraint imposed on the project team developing the software.
+        \newline 
+        For sure, there was a time constraint that has forced us to get faster in the development of the whole project; indeed, we had a lot of work to do and the schedule was stringent. This parameter is set to high. 
+\end{itemize}
+\newpage
+The values associated to each Cost Driver are listed in the following table:
+\newline
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|1|r|}
+        \hline
+        \textbf{Cost Drivers} & \textbf{Value} & \textbf{Weight}\\
+        \hline
+        RELY & Moderate & 1.00\\
+        \hline
+        DATA & High & 1.14\\
+        \hline 
+        CPLX & Nominal & 1.00\\
+        \hline
+        RUSE & Nominal & 1.00 \\
+        \hline
+        DOCU & Nominal & 1.00 \\
+        \hline
+        TIME & Very High & 1.63 \\
+        \hline
+        STOR & Nominal & 1.00 \\
+        \hline
+        PVOL & Low & 0.87 \\
+        \hline
+        ACAP & High & 0.85 \\
+        \hline 
+        PCAP & High & 0.88 \\
+        \hline
+        PCON & High & 0.90 \\
+        \hline
+        APEX & Low & 1.10 \\
+        \hline
+        PLEX & Low & 1.09 \\
+        \hline
+        LTEX & Nominal & 1.00 \\
+        \hline
+        TOOL & Low & 1.09 \\
+        \hline
+        SITE & High & 0.93 \\
+        \hline
+        SCED & High & 1.00 \\
+        \hline
+        EAF & \multicolumn{2}{r|}{\manuallabel{EAF}{1.32}\ref{EAF}} \\
+        \hline
+    \end{tabular}
+\end{table}
