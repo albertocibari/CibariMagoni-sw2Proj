@@ -1,13 +1,16 @@
 \label{cocomo}
 
-In order to estimate the effort of the project, we refer to the COCOMO II model; the effort is expressed as Person-Months (PM) and it is:
+In order to estimate the effort of the project, we refer to the COCOMO II model;
+During the estimation process, in order to give a weight to Scale Drivers and Cost Drivers, we have referred to the tables presented in this document: \href{http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf}{\textcolor{blue}{\underline{COCOMO II - Model Definition Manual (link)}}}
 
+
+The effort is expressed as Person-Months (PM) and it is:
 \begin{equation}
     \textrm{Effort} = A * EAF * (KSLOC)^{E} = \ref{A} * \ref{EAF} * (\ref{KSLOC})^{\ref{E}}  = \manuallabel{PM}{28.631}\ref{PM} PM
 \end{equation}
 \begin{table}[H]
     \centering
-    \begin{tabular}{|l|1|1|}
+    \begin{tabular}{|l|l|l|}
         \hline
         \textbf{Parameter} & \textbf{Value} & \textbf{Section}\\
         \hline
@@ -30,10 +33,24 @@ The value of KSLOC can be evaluated from the FP count:
 The value 53 refers to the use of Java as the implementation language of our software.
 \newline
 Since we have not implemented the software, we are not able to make any comment about the estimation of the SLOC. 
-\newline
-During the estimation process, in order to give a weight to Scale Drivers and Cost Drivers, we have referred to the tables presented in this document: 
-\newline
-\href{http://csse.usc.edu/csse/research/COCOMOII/cocomo2000.0/CII_modelman2000.0.pdf}{\textcolor{blue}{\underline{COCOMO II - Model Definition Manual (link)}}}
 
-%Duration = 10.4 months
-%N = 28.668 /10.4 = 2.75 persone
+
+From the Effort value we derived the project duration:
+\begin{equation}
+    \textrm{Duration} = 3.67 * (\textrm{Effort})^{F} = 3.67 * (\ref{PM})^{\ref{F}} = \manuallabel{Duration}{10.42}\ref{Duration}
+\end{equation}
+where
+\begin{equation}
+    F = 0.28 + 0.2 * (E - 0.91) = 0.28 + 0.2 * (\ref{E} - 0.91) = \manuallabel{F}{0.3112}\ref{F}
+\end{equation}
+\newline
+We have worked on our project for five months, while in the evaluation the duration is approximately ten months. The difference is due to the fact that during the five months we have not worked on the development and the testing of the software, while the estimation refers to the total duration of the project.
+\newline
+So, even if we do not have a real value to be compared with the one estimated by COCOMO II, we think that the evaluation is accurate.
+\newline
+With the Effort and the Duration we can find the number of people working on the project
+\begin{equation}
+    N_{people} = \frac{\textrm{Effort}}{\textrm{Duration}} = \frac{\ref{PM}}{\ref{Duration}} = \manuallabel{NPeople}{2.74}\ref{NPeople}
+\end{equation}
+\newline
+This value is almost the real one: indeed our team was formed of two people.
