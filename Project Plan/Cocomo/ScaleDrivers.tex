@@ -37,13 +37,13 @@ The values associated to each Scale Driver are listed in the following table:
         \hline
         Process maturity & Nominal & 4.68\\
         \hline
-        Total & \multicolumn{2}{r|}{\manuallabel{SD}{15.67}} \\
+        Total & \multicolumn{2}{|r}{\manuallabel{SD}{15.67}}\ref{SD} \\
         \hline
     \end{tabular}
 \end{table}
 
 To calculate the exponent E in the effort formula, we use the value we found of the scale drivers.
 \begin{equation}
-    E = B + 0.01 * \ref{SD} = 0.91 + 0.01 * \ref{DS} = \manuallabel{E}{1.066}\ref{E}
+    E = B + 0.01 * \ref{SD} = 0.91 + 0.01 * \ref{SD} = \manuallabel{E}{1.066}\ref{E}
 \end{equation}
 Where B is the scaling base-exponent, and it is given by COCOMO. It's value is 0.91.
